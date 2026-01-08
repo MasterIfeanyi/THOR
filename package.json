@@ -1,0 +1,26 @@
+{
+  "name": "open-source-project",
+  "private": true,
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "install:all": "npm install",
+    "db:setup": "npm run db:generate --workspace=@repo/database && npm run db:push --workspace=@repo/database",
+    "db:seed": "npm run db:seed --workspace=@repo/database",
+    "dev": "npm run dev --workspace=@repo/web",
+    "dev:api": "npm run dev --workspace=@repo/api"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "devDependencies": {
+    "prisma": "^7.2.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
+
+
