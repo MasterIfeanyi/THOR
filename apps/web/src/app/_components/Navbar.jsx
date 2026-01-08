@@ -5,9 +5,13 @@ import { useState } from 'react';
 import { FiMenu, FiX } from 'react-icons/fi';
 import { FaGithub } from 'react-icons/fa';
 import Avatar from './Avatar';
-
+import { useSession } from 'next-auth/react';
+import Image from 'next/image';
 
 export default function Navbar() {
+
+
+    const { data: session } = useSession();
 
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -19,7 +23,7 @@ export default function Navbar() {
     ];
 
     // Mock user - change this to test different scenarios
-    const user = null; // Not logged in
+    const user = session?.user || null; // Not logged in
     // const user = {
     //     name: 'John Doe',
     //     image: 'https://avatars.githubusercontent.com/u/12345678?v=4', // GitHub profile pic
@@ -31,11 +35,17 @@ export default function Navbar() {
 
     return (
         <nav className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60">
-            <div className="container mx-auto px-4">
+            <div className="container mx-auto px-0">
                 <div className='flex h-16 items-center justify-between'>
 
-                    <Link href="/" className="text-xl font-bold text-foreground">
-                        YourLogo
+                    <Link href="/" className="flex items-center gap-1">
+                        <Image 
+                            src="/images/thor.png" 
+                            alt="THOR Logo" 
+                            width={40} 
+                            height={40}
+                        />
+                        <span className="text-xl font-bold text-foreground">THOR</span>
                     </Link>
 
                     <div className="hidden md:flex items-center gap-6 ms-auto">
