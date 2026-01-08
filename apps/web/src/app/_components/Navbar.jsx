@@ -19,7 +19,7 @@ export default function Navbar() {
     ];
 
     // Mock user - change this to test different scenarios
-    const user = true; // Not logged in
+    const user = null; // Not logged in
     // const user = {
     //     name: 'John Doe',
     //     image: 'https://avatars.githubusercontent.com/u/12345678?v=4', // GitHub profile pic
