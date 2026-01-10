@@ -6,9 +6,15 @@ import Button from "@/components/Button";
 import { FaGithub } from "react-icons/fa";
 import { signIn, signOut, useSession } from "next-auth/react";
 
+
 export default function Home() {
 
-   const { data: session } = useSession();
+  const { data: session } = useSession();
+
+  const handleGuestAccess = async () => {
+    session ? await signOut() : null;
+    localStorage.setItem("guestMode", "true");
+  };
 
 
   return (
@@ -60,9 +66,7 @@ export default function Home() {
                     <Button 
                       variant="other" 
                       className="rounded-full px-8 py-4 text-sm cursor-pointer"
-                      onClick={() => {
-                        session ? signOut() : null;
-                      }}
+                      onClick={handleGuestAccess}
                     >
                       Continue as Guest
                     </Button>

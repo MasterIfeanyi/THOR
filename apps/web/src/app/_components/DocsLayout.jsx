@@ -12,7 +12,7 @@ const DocsLayout = ({children, tree}) => {
       <div className="flex h-screen bg-background">
         <Sidebar tree={tree} />
         <main className="flex-1 overflow-y-auto px-12 py-8">
-          <Breadcrumb />
+          <Breadcrumb tree={tree} />
           {children}
         </main>
       </div>

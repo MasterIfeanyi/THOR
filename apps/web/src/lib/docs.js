@@ -54,9 +54,11 @@ export function getDocsTree() {
     }).filter(Boolean);
 
     return items.sort((a, b) => {
+        // folders take priority over files in the Sidebar link
       if (a.type !== b.type) {
         return a.type === "folder" ? -1 : 1;
       }
+      // sort by name for files
       return a.name.localeCompare(b.name);
     });
   }

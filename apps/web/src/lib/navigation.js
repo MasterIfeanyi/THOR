@@ -1,74 +1,52 @@
-export const navigationItems = [
-  {
-    section: 'QUICK START',
-    items: [
-        { 
-            id: 'getting-started', 
-            label: 'Getting Started', 
-            href: '/getting-started', 
-            breadcrumb: [
-                { label: 'QUICK START', href: '/getting-started' },
-                { label: 'Getting Started' }
-            ] 
-        },
-        { 
-            id: 'installation', 
-            label: 'Installation', 
-            href: '/installation',
-            breadcrumb: [
-                { label: 'QUICK START', href: '/getting-started' },
-                { label: 'Installation' }
-            ] 
-        },
-    ]
-  },
-  {
-    section: 'LEARN',
-    items: [
-        { 
-            id: 'tutorial', 
-            label: 'Tutorial: Hello World', 
-            href: '/tutorial',
-            breadcrumb: [
-                {label: 'LEARN', href: '/tutorial'},
-                {label: 'Tutorial: Hello World'}
-            ]
-        },
-        { 
-            id: 'concepts', 
-            label: 'Core Concepts', 
-            href: '/concepts',
-            breadcrumb: [
-                {label: 'LEARN', href: '/tutorial'},
-                {label: 'Core Concepts'}
-            ]
-        },
-    ]
-  },
-  {
-    section: 'REFERENCE',
-    items: [
-        { 
-            id: 'api-reference', 
-            label: 'API Reference', 
-            href: '/api-reference',
-            breadcrumb: [
-                { label: 'REFERENCE', href: '/api-reference' },
-                { label: 'API Reference' }
-            ]
-        },
-    ]
-  }
-];
+
+
 
 // Helper function to get breadcrumb for a path
-export function getBreadcrumbForPath(pathname) {
-  for (const section of navigationItems) {
-    for (const item of section.items) {
-      if (item.href === pathname) {
-        return item.breadcrumb;
+export function getBreadcrumbForPath(pathname, tree) {
+  
+
+  function walk(nodes, parents) {
+    for (const node of nodes) {
+      // Folder
+      if (node.type === "folder") {
+        const folderCrumb = {
+          label: humanize(node.name),
+          href: buildHref(parents, node.name),
+        };
+
+        const result = walk(
+          node.children,
+          parents.concat(folderCrumb)
+        );
+
+        if (result) return result;
+      }
+
+      // File
+      if (node.type === "file" && node.route === pathname) {
+        return parents.concat({
+          label: humanize(node.name),
+          href: node.route,
+        });
       }
     }
+
+    return null;
   }
-  return null;
+
+  return walk(tree, []) || [];
+}
+
+
+function humanize(text) {
+  return text
+    .replace(/-/g, " ")
+    .replace(/\b\w/g, (char) => char.toUpperCase());
+}
+
+function buildHref(parents, name) {
+  if (parents.length === 0) {
+    return `/${name}`;
+  }
+  return `${parents[parents.length - 1].href}/${name}`;
 }

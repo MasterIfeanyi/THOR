@@ -5,9 +5,9 @@ import { getBreadcrumbForPath } from '@/lib/navigation';
 import { MdChevronRight } from 'react-icons/md';
 import Link from 'next/link';
 
-export default function Breadcrumb() {
+export default function Breadcrumb({tree}) {
   const pathname = usePathname();
-  const breadcrumb = getBreadcrumbForPath(pathname);
+  const breadcrumb = getBreadcrumbForPath(pathname, tree);
 
   if (!breadcrumb || breadcrumb.length === 0) {
     return null;

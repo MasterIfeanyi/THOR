@@ -1,8 +1,8 @@
 import DocsLayout from "@/app/_components/DocsLayout";
 import { getDocsTree } from "@/lib/docs";
 
-export default function DocsServerLayout({ children }) {
-  const tree = getDocsTree();
+export default async function DocsServerLayout({ children }) {
+  const tree = await getDocsTree();
 
   return <DocsLayout tree={tree}>{children}</DocsLayout>;
 }
