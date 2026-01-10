@@ -13,7 +13,7 @@ const Sidebar = ({ tree }) => {
       if (node.type === 'folder') {
         return (
           <div key={node.name} className="mb-2">
-            <div className="font-semibold text-gray-700 uppercase text-xs mb-1 px-3">
+            <div className="font-semibold text-muted-foreground uppercase text-xs px-3 tracking-widest mb-2">
               {node.name}
             </div>
             <div className="ml-2">
@@ -30,10 +30,10 @@ const Sidebar = ({ tree }) => {
         <Link
           key={node.route}
           href={node.route}
-          className={`block px-3 py-2 rounded-md text-sm ${
+          className={`block px-3 py-2 rounded-md text-sm transition-colors  ${
             isActive
               ? 'bg-blue-100 text-blue-700 font-medium'
-              : 'text-gray-700 hover:bg-gray-100'
+              : 'hover:bg-gray-100 text-muted-foreground hover:text-foreground'
           }`}
         >
           {node.name}
