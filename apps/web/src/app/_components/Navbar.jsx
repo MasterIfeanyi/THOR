@@ -10,7 +10,6 @@ import Image from 'next/image';
 
 export default function Navbar() {
 
-
     const { data: session } = useSession();
 
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -51,7 +50,7 @@ export default function Navbar() {
                         
                         {/* GitHub Repo Link */}
                         <Link
-                            href="https://github.com/yourusername/yourrepo"
+                            href="https://github.com/MasterIfeanyi/THOR"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-muted-foreground hover:text-foreground transition-colors"
