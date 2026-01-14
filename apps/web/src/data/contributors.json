@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Your Name",
+    "role": "Creator",
+    "avatar": "https://github.com/yourusername.png",
+    "github": "yourusername",
+    "contributions": ["Initial setup", "Documentation"]
+  },
+  {
+    "name": "John Doe",
+    "role": "Contributor",
+    "avatar": "https://github.com/johndoe.png",
+    "github": "johndoe",
+    "contributions": ["Bug fixes", "UI improvements"]
+  }
+]

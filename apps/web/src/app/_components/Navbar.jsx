@@ -16,22 +16,12 @@ export default function Navbar() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     const navLinks = [
-        { label: 'Docs', href: '/getting-started' },
-        { label: 'Blog', href: '/blog' },
-        { label: 'Showcase', href: '/showcase' },
         { label: 'Community', href: '/community' },
     ];
 
     // Mock user - change this to test different scenarios
     const user = session?.user || null; // Not logged in
-    // const user = {
-    //     name: 'John Doe',
-    //     image: 'https://avatars.githubusercontent.com/u/12345678?v=4', // GitHub profile pic
-    // };
-    // const user = {
-    //     name: 'Guest User',
-    //     image: null, // No image = default avatar
-    // };
+    
 
     return (
         <nav className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60">
