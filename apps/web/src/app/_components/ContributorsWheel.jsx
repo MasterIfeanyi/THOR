@@ -43,48 +43,28 @@ const CONTRIBUTORS = [
   }
 ];
 
-function ContributorCard({ contributor, isActive }) {
+function ContributorCard({ contributor }) {
   return (
-    <div
-      className={`
-        flex items-center gap-4 p-6 rounded-lg border transition-all duration-300
-        ${isActive 
-          ? 'bg-primary/10 border-primary scale-105 shadow-lg' 
-          : 'bg-card border-border opacity-50 scale-95'
-        }
-      `}
+    <a
+      href={`https://github.com/${contributor.github}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group flex items-center gap-4 p-4 rounded-lg border border-border bg-card hover:border-primary hover:bg-card/80 transition-all duration-300 hover:scale-110"
     >
-      <Image
-        width={98}
-        height={98}
-        src={contributor.avatar}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={`https://github.com/${contributor.github}.png`}
         alt={contributor.name}
-        className="w-16 h-16 rounded-full border-2 border-border"
+        className="w-12 h-12 rounded-full border-2 border-border group-hover:border-primary transition-colors object-cover"
       />
-      <div className="flex-1">
-        <div className="flex items-center gap-2">
-          <h3 className="font-semibold text-lg">{contributor.name}</h3>
-          <span className="text-xs px-2 py-1 rounded-full bg-primary/20 text-primary">
-            {contributor.role}
-          </span>
-        </div>
-        <div className="flex flex-wrap gap-1 mt-2">
-          {contributor.contributions.map((contrib, i) => (
-            <span key={i} className="text-xs px-2 py-0.5 rounded bg-muted text-muted-foreground">
-              {contrib}
-            </span>
-          ))}
-        </div>
+      <div className="flex-1 min-w-0">
+        <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors truncate">
+          {contributor.name}
+        </h3>
+        <p className="text-sm text-muted-foreground truncate">@{contributor.github}</p>
       </div>
-      <a
-        href={`https://github.com/${contributor.github}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-muted-foreground hover:text-foreground transition-colors"
-      >
-        <FaGithub size={24} />
-      </a>
-    </div>
+      <FaGithub className="text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0" size={20} />
+    </a>
   );
 }
 
@@ -140,13 +120,6 @@ export default function CommunityPage() {
           <p className="text-muted-foreground text-lg mb-6">
             Special thanks to everyone who has contributed to making THOR better!
           </p>
-          <button
-            onClick={spinWheel}
-            disabled={isSpinning}
-            className="px-6 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            {isSpinning ? '🎰 Spinning...' : '🎰 Spin the Wheel!'}
-          </button>
         </div>
 
         {/* Slot Machine Wheel */}
@@ -168,24 +141,6 @@ export default function CommunityPage() {
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-
-        {/* Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto mb-12">
-          <div className="text-center p-6 bg-card border border-border rounded-lg">
-            <div className="text-3xl font-bold text-primary mb-2">{CONTRIBUTORS.length}</div>
-            <div className="text-sm text-muted-foreground">Total Contributors</div>
-          </div>
-          <div className="text-center p-6 bg-card border border-border rounded-lg">
-            <div className="text-3xl font-bold text-primary mb-2">
-              {CONTRIBUTORS.reduce((acc, c) => acc + c.contributions.length, 0)}
-            </div>
-            <div className="text-sm text-muted-foreground">Total Contributions</div>
-          </div>
-          <div className="text-center p-6 bg-card border border-border rounded-lg">
-            <div className="text-3xl font-bold text-primary mb-2">🌟</div>
-            <div className="text-sm text-muted-foreground">Community Driven</div>
           </div>
         </div>
 
