@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 import { MDXRemote } from "next-mdx-remote/rsc";
-
+import { mdxComponents } from "@/app/_components/mdx-components";
 
 
 const CONTENT_PATH = path.join(
@@ -118,7 +118,12 @@ export default async function DocPage(props) {
 
     const source = fs.readFileSync(filePath, "utf8");
 
-    return <MDXRemote source={source} />;
+    return (
+      <article className="prose prose-neutral max-w-none">
+        <MDXRemote source={source} components={mdxComponents} />
+      </article>
+    );
+
 }
 
 

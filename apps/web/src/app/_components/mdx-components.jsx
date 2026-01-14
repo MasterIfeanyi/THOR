@@ -17,4 +17,10 @@ export const mdxComponents = {
   pre: (props) => (
     <pre className="rounded-lg bg-zinc-900 text-zinc-100 p-4 overflow-x-auto mb-6" {...props} />
   ),
+   blockquote: (props) => (
+    <blockquote
+      className="mt-6 border-l-2 pl-6 italic text-muted-foreground"
+      {...props}
+    />
+  ),
 };
