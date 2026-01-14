@@ -1,3 +1,5 @@
+import { Callout } from "./Callout";
+
 export const mdxComponents = {
   h1: (props) => (
     <h1 className="text-4xl font-bold tracking-tight mt-8 mb-4" {...props} />
@@ -23,4 +25,5 @@ export const mdxComponents = {
       {...props}
     />
   ),
+  Callout,
 };
