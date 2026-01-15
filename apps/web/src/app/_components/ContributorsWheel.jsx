@@ -3,67 +3,6 @@
 import { useEffect, useRef } from 'react';
 import { FaGithub } from 'react-icons/fa';
 
-
-// This would normally come from your contributors.json file
-// const CONTRIBUTORS = [
-//   {
-//     name: "Alice Johnson",
-//     role: "Creator",
-//     avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Alice",
-//     github: "alice",
-//     contributions: ["Initial setup", "Documentation"]
-//   },
-//   {
-//     name: "Bob Smith",
-//     role: "Contributor",
-//     avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Bob",
-//     github: "bob",
-//     contributions: ["Bug fixes", "UI improvements"]
-//   },
-//   {
-//     name: "Carol White",
-//     role: "Contributor",
-//     avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Carol",
-//     github: "carol",
-//     contributions: ["Testing", "Feature requests"]
-//   },
-//   {
-//     name: "David Lee",
-//     role: "Contributor",
-//     avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=David",
-//     github: "david",
-//     contributions: ["Code review"]
-//   },
-//   {
-//     name: "Frank Miller",
-//     role: "Contributor",
-//     avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Frank",
-//     github: "frank",
-//     contributions: ["Refactoring", "Performance tuning"]
-//   },
-//   {
-//     name: "Grace Kim",
-//     role: "Contributor",
-//     avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Grace",
-//     github: "grace",
-//     contributions: ["Accessibility improvements"]
-//   },
-//   {
-//     name: "Henry Walker",
-//     role: "Contributor",
-//     avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Henry",
-//     github: "henry",
-//     contributions: ["API integration"]
-//   },
-//   {
-//     name: "Isabella Martinez",
-//     role: "Contributor",
-//     avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Isabella",
-//     github: "isabella",
-//     contributions: ["Edge case fixes", "Testing"]
-//   }
-// ];
-
 function ContributorCard({ contributor }) {
   return (
     <a
@@ -142,7 +81,7 @@ export default function ContributorsWheel({ contributors = [] }) {
 
         {/* Code Contributors */}
         {contributors.length > 0 && (
-          <div className='max-w-2xl mx-auto mb-12 overflow-x-auto'>
+          <div className='max-w-2xl mx-auto mb-2 overflow-x-auto'>
             {/* List with fade effect */}
             <div className="relative">
               {/* Top fade */}
@@ -156,11 +95,12 @@ export default function ContributorsWheel({ contributors = [] }) {
                 ref={listRef} 
                 className="
                   space-y-3
-                  py-4
-                  h-120
+                  py-12
+                  h-auto
                   overflow-y-auto
                   overflow-x-visible
                   scrollbar-hide
+                  mb-12
                 "
               >
                 {contributors.map((contributor) => (
@@ -201,7 +141,7 @@ export default function ContributorsWheel({ contributors = [] }) {
             </li>
           </ol>
 
-          <div className="mt-6 p-4 bg-primary/10 border border-primary/20 rounded-lg">
+          <div className="mt-6 p-4 bg-accent border border-primary/20 rounded-lg">
             <p className="text-sm">
               <strong>✨ Pro tip:</strong> Contributors are fetched automatically from GitHub API. 
               You do not need to add yourself anywhere - just make valuable contributions!
