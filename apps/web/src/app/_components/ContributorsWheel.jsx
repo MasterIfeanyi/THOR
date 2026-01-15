@@ -5,64 +5,64 @@ import { FaGithub } from 'react-icons/fa';
 
 
 // This would normally come from your contributors.json file
-const CONTRIBUTORS = [
-  {
-    name: "Alice Johnson",
-    role: "Creator",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Alice",
-    github: "alice",
-    contributions: ["Initial setup", "Documentation"]
-  },
-  {
-    name: "Bob Smith",
-    role: "Contributor",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Bob",
-    github: "bob",
-    contributions: ["Bug fixes", "UI improvements"]
-  },
-  {
-    name: "Carol White",
-    role: "Contributor",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Carol",
-    github: "carol",
-    contributions: ["Testing", "Feature requests"]
-  },
-  {
-    name: "David Lee",
-    role: "Contributor",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=David",
-    github: "david",
-    contributions: ["Code review"]
-  },
-  {
-    name: "Frank Miller",
-    role: "Contributor",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Frank",
-    github: "frank",
-    contributions: ["Refactoring", "Performance tuning"]
-  },
-  {
-    name: "Grace Kim",
-    role: "Contributor",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Grace",
-    github: "grace",
-    contributions: ["Accessibility improvements"]
-  },
-  {
-    name: "Henry Walker",
-    role: "Contributor",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Henry",
-    github: "henry",
-    contributions: ["API integration"]
-  },
-  {
-    name: "Isabella Martinez",
-    role: "Contributor",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Isabella",
-    github: "isabella",
-    contributions: ["Edge case fixes", "Testing"]
-  }
-];
+// const CONTRIBUTORS = [
+//   {
+//     name: "Alice Johnson",
+//     role: "Creator",
+//     avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Alice",
+//     github: "alice",
+//     contributions: ["Initial setup", "Documentation"]
+//   },
+//   {
+//     name: "Bob Smith",
+//     role: "Contributor",
+//     avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Bob",
+//     github: "bob",
+//     contributions: ["Bug fixes", "UI improvements"]
+//   },
+//   {
+//     name: "Carol White",
+//     role: "Contributor",
+//     avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Carol",
+//     github: "carol",
+//     contributions: ["Testing", "Feature requests"]
+//   },
+//   {
+//     name: "David Lee",
+//     role: "Contributor",
+//     avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=David",
+//     github: "david",
+//     contributions: ["Code review"]
+//   },
+//   {
+//     name: "Frank Miller",
+//     role: "Contributor",
+//     avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Frank",
+//     github: "frank",
+//     contributions: ["Refactoring", "Performance tuning"]
+//   },
+//   {
+//     name: "Grace Kim",
+//     role: "Contributor",
+//     avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Grace",
+//     github: "grace",
+//     contributions: ["Accessibility improvements"]
+//   },
+//   {
+//     name: "Henry Walker",
+//     role: "Contributor",
+//     avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Henry",
+//     github: "henry",
+//     contributions: ["API integration"]
+//   },
+//   {
+//     name: "Isabella Martinez",
+//     role: "Contributor",
+//     avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Isabella",
+//     github: "isabella",
+//     contributions: ["Edge case fixes", "Testing"]
+//   }
+// ];
 
 function ContributorCard({ contributor }) {
   return (
@@ -89,7 +89,7 @@ function ContributorCard({ contributor }) {
   );
 }
 
-export default function CommunityPage() {
+export default function ContributorsWheel({ contributors = [] }) {
     
     const listRef = useRef(null);
 
@@ -116,7 +116,16 @@ export default function CommunityPage() {
         return () => cancelAnimationFrame(animationId);
     }, []);
 
-    if (!CONTRIBUTORS || CONTRIBUTORS.length === 0) return null;
+    if (!contributors || contributors.length === 0) return (
+      <div className="container mx-auto px-4 py-12">
+        <div className="text-center mb-12">
+          <h1 className="text-4xl font-bold mb-4">Our Amazing Contributors</h1>
+          <p className="text-muted-foreground text-lg mb-6">
+            Loading contributors from GitHub...
+          </p>
+        </div>
+      </div>
+    );
 
 
   return (
@@ -127,77 +136,76 @@ export default function CommunityPage() {
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold mb-4">Our Amazing Contributors</h1>
           <p className="text-muted-foreground text-lg mb-6">
-            Special thanks to everyone who has contributed to making THOR better!
+            Special thanks to the {contributors.length} amazing {contributors.length === 1 ? 'person' : 'people'} who contributed to making THOR better!
           </p>
         </div>
 
         {/* Code Contributors */}
-        {CONTRIBUTORS.length > 0 && (
+        {contributors.length > 0 && (
           <div className='max-w-2xl mx-auto mb-12 overflow-x-auto'>
-            
-                {/* List with fade effect */}
-                <div className="relative">
-                {/* Top fade */}
-                <div className="absolute top-0 left-0 right-0 h-20 bg-linear-to-b from-background via-background/80 to-transparent pointer-events-none z-10"></div>
-                
-                {/* Bottom fade */}
-                <div className="absolute bottom-0 left-0 right-0 h-20 bg-linear-to-t from-background via-background/80 to-transparent pointer-events-none z-10"></div>
-                
-                {/* Contributors List */}
-                <ul 
-                    ref={listRef} 
-                    className="
-                        space-y-3
-                        py-4
-                        h-120
-                        overflow-y-auto
-                        overflow-x-visible
-                        scrollbar-hide
-                    "
-                >
-                    {CONTRIBUTORS.map((contributor) => (
-                    <li key={contributor.github} className="list-none overflow-x-visible">
-                        <ContributorCard contributor={contributor} />
-                    </li>
-                    ))}
-                </ul>
-                </div>
+            {/* List with fade effect */}
+            <div className="relative">
+              {/* Top fade */}
+              <div className="absolute top-0 left-0 right-0 h-20 bg-linear-to-b from-background via-background/80 to-transparent pointer-events-none z-10"></div>
+              
+              {/* Bottom fade */}
+              <div className="absolute bottom-0 left-0 right-0 h-20 bg-linear-to-t from-background via-background/80 to-transparent pointer-events-none z-10"></div>
+              
+              {/* Contributors List */}
+              <ul 
+                ref={listRef} 
+                className="
+                  space-y-3
+                  py-4
+                  h-120
+                  overflow-y-auto
+                  overflow-x-visible
+                  scrollbar-hide
+                "
+              >
+                {contributors.map((contributor) => (
+                <li key={contributor.github} className="list-none overflow-x-visible">
+                    <ContributorCard contributor={contributor} />
+                </li>
+                ))}
+              </ul>
             </div>
+          </div>
         )}
 
         {/* How to Contribute Section */}
         <div className="max-w-3xl mx-auto bg-card border border-border rounded-lg p-8">
-            <h2 className="text-2xl font-bold mb-4">Want to Join Our Community?</h2>
-            <p className="text-muted-foreground mb-6">
-                Contributing is easy! Just follow these simple steps:
-            </p>
-            
-            <ol className="space-y-4 text-sm">
-                <li className="flex gap-3">
-                    <span className="shrink-0 w-6 h-6 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-semibold">1</span>
-                    <div>
-                        <strong>Fork the repository</strong> on GitHub
-                    </div>
-                </li>
-                <li className="flex gap-3">
-                    <span className="shrink-0 w-6 h-6 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-semibold">2</span>
-                    <div>
-                        <strong>Make your changes</strong> - fix bugs, add features, improve docs
-                    </div>
-                </li>
-                <li className="flex gap-3">
-                    <span className="shrink-0 w-6 h-6 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-semibold">3</span>
-                    <div>
-                        <strong>Submit a pull request</strong> - once merged, you will automatically appear here!
-                    </div>
-                </li>
-            </ol>
+          <h2 className="text-2xl font-bold mb-4">Want to Join Our Community?</h2>
+          <p className="text-muted-foreground mb-6">
+              Contributing is easy! Just follow these simple steps:
+          </p>
+          
+          <ol className="space-y-4 text-sm">
+            <li className="flex gap-3">
+                <span className="shrink-0 w-6 h-6 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-semibold">1</span>
+                <div>
+                    <strong>Fork the repository</strong> on GitHub
+                </div>
+            </li>
+            <li className="flex gap-3">
+                <span className="shrink-0 w-6 h-6 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-semibold">2</span>
+                <div>
+                    <strong>Make your changes</strong> - fix bugs, add features, improve docs
+                </div>
+            </li>
+            <li className="flex gap-3">
+                <span className="shrink-0 w-6 h-6 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-semibold">3</span>
+                <div>
+                    <strong>Submit a pull request</strong> - once merged, you will automatically appear here!
+                </div>
+            </li>
+          </ol>
 
-            <div className="mt-6 p-4 bg-primary/10 border border-primary/20 rounded-lg">
-                <p className="text-sm">
-                    <strong>✨ Pro tip:</strong> Contributors are fetched automatically from GitHub API. 
-                    You do not need to add yourself anywhere - just make valuable contributions!
-                </p>
+          <div className="mt-6 p-4 bg-primary/10 border border-primary/20 rounded-lg">
+            <p className="text-sm">
+              <strong>✨ Pro tip:</strong> Contributors are fetched automatically from GitHub API. 
+              You do not need to add yourself anywhere - just make valuable contributions!
+            </p>
           </div>
 
         </div>
