@@ -15,6 +15,7 @@ export default function Navbar() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     const navLinks = [
+        { label: 'Docs', href: '/getting-started' },
         { label: 'Community', href: '/community' },
     ];
 
