@@ -21,20 +21,20 @@ export default function Breadcrumb({tree}) {
             return (
                 <div key={index} className="flex items-center gap-2">
                     {isLast ? (
-                        <span className="font-semibold text-gray-900">
+                        <span className="font-semibold text-foreground">
                             {crumb.label}
                         </span>
                         ) : (
                         <Link 
                             href={crumb.href}
-                            className="font-semibold text-blue-600 hover:text-blue-800 transition-colors"
+                            className="font-semibold text-primary hover:text-accent-foreground transition-colors"
                         >
                             {crumb.label}
                         </Link>
                     )}
 
                     {!isLast && (
-                        <MdChevronRight className="text-gray-400" size={18} />
+                        <MdChevronRight className="text-muted-foreground" size={18} />
                     )}
                 </div>
             )

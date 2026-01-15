@@ -1,10 +1,11 @@
 "use client"
 import Link from 'next/link'
-import React from 'react'
+import React, {useState, useRef} from 'react'
 import { usePathname } from 'next/navigation';
 
 
 const Sidebar = ({ tree }) => {
+
   const pathname = usePathname();
   
   // Recursive component to render tree
@@ -32,7 +33,7 @@ const Sidebar = ({ tree }) => {
           href={node.route}
           className={`block px-3 py-2 rounded-md text-sm transition-colors  ${
             isActive
-              ? 'bg-blue-100 text-blue-700 font-medium'
+              ? 'bg-accent text-primary font-medium'
               : 'hover:bg-gray-100 text-muted-foreground hover:text-foreground'
           }`}
         >
@@ -53,7 +54,8 @@ const Sidebar = ({ tree }) => {
   }
 
   return (
-    <aside className="w-56 bg-muted border-r border-border overflow-y-auto py-6 px-4">
+    <aside className="bg-muted border-r border-border overflow-y-auto py-6 px-4"
+    >
       <nav>
         {renderTree(tree)}
       </nav>
