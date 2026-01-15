@@ -1,4 +1,3 @@
-import contributors from '@/data/contributors.json';
 import ContributorsWheel from '@/app/_components/ContributorsWheel';
 import NavbarLayout from '../_components/NavbarLayout';
 
@@ -6,8 +5,6 @@ export const metadata = {
   title: 'Community - THOR',
   description: 'Meet our amazing contributors',
 };
-
-// import ContributorsClient from '@/app/_components/ContributorsClient';
 
 // Fetch real contributors from GitHub API
 async function getContributors() {
@@ -38,8 +35,7 @@ async function getContributors() {
 export default async function CommunityPage() {
 
   const contributors = await getContributors();
-  
-//   return <ContributorsClient contributors={contributors} specialThanks={specialThanks} />;
+
   return (
     <NavbarLayout>
       <ContributorsWheel contributors={contributors} />
@@ -47,6 +43,3 @@ export default async function CommunityPage() {
   );
 }
 
-// export default function CommunityPage() {
-//   return <ContributorsWheel contributors={contributors} />;
-// }

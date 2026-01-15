@@ -279,4 +279,4 @@ By contributing, you agree that your contributions will be licensed under the sa
 
 ---
 
-**Thank you for making THOR better! Every contribution, no matter how small, makes a difference.** 
+**Thank you for making THOR better! Every contribution, no matter how small, makes a difference.**
