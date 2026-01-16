@@ -61,8 +61,10 @@ console.log(greet("Developer"));
 export default function MarkdownPlayground() {
 
     const [markdown, setMarkdown] = useState(() => {
-        const saved = localStorage.getItem('markdown-playground');
-        saved ? saved : defaultMarkdown;
+        if (typeof window !== 'undefined') {
+            const saved = localStorage.getItem('markdown-playground');
+            return saved ? saved : defaultMarkdown;
+        }
     });
 
     const [showPreview, setShowPreview] = useState(true);
