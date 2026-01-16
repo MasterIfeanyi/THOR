@@ -64,6 +64,21 @@ export default function MarkdownPlayground() {
 
     const [showPreview, setShowPreview] = useState(true);
 
+    const handleChange = (e) => {
+        const value = e.target.value;
+        setMarkdown(value);
+        localStorage.setItem('markdown-playground', value);
+    };
 
+
+    const handleReset = () => {
+        setMarkdown(defaultMarkdown);
+        localStorage.setItem('markdown-playground', defaultMarkdown);
+    };
+
+    const handleClear = () => {
+        setMarkdown('');
+        localStorage.setItem('markdown-playground', '');
+    };
 
 }
