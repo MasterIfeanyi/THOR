@@ -96,31 +96,31 @@ export default function MarkdownPlayground() {
             {/* Header */}
             <div className="border-b border-gray-800 bg-gray-950">
                 <div className="max-w-7xl mx-auto px-4 py-4">
-                    <div className="flex items-center justify-between">
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                         <div>
                             <h1 className="text-2xl font-bold">Markdown Playground</h1>
                             <p className="text-sm text-gray-400 mt-1">
                                 Learn and practice markdown syntax in real-time
                             </p>
                         </div>
-                        <div className="flex gap-2">
+                        <div className="flex flex-wrap gap-2 w-full sm:w-auto">
                             <Button
                                 onClick={() => setShowPreview(!showPreview)}
-                                className="px-4 py-2 rounded-lg text-sm font-medium transition-colors"
+                                className="px-4 py-2 rounded-lg text-sm font-medium transition-colors flex-1 sm:flex-none"
                             >
                                 {showPreview ? 'Hide Preview' : 'Show Preview'}
                             </Button>
                             <Button
                                 variant='secondary'
                                 onClick={handleReset}
-                                className="px-4 py-2 rounded-lg text-sm font-medium transition-colors"
+                                className="px-4 py-2 rounded-lg text-sm font-medium transition-colors flex-1 sm:flex-none"
                             >
                                 Reset
                             </Button>
                             <Button
                                 variant="danger"
                                 onClick={handleClear}
-                                className="px-4 py-2 rounded-lg text-sm font-medium transition-colors"
+                                className="px-4 py-2 rounded-lg text-sm font-medium transition-colors flex-1 sm:flex-none"
                             >
                                 Clear
                             </Button>
@@ -168,7 +168,7 @@ export default function MarkdownPlayground() {
                                     Preview
                                 </span>
                             </div>
-                            <div className="flex-1 min-h-150 bg-gray-800 p-6 rounded-b-lg overflow-auto border border-t-0 border-gray-700">
+                            <div className="flex-1 bg-gray-800 p-6 rounded-b-lg overflow-auto border border-t-0 border-gray-700">
                                 <div className="prose prose-invert prose-slate max-w-none">
                                     <ReactMarkdown
                                         remarkPlugins={[remarkGfm]}
