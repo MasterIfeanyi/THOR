@@ -3,12 +3,14 @@
 
 import { useSession, signIn } from "next-auth/react";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import Modal from "@/components/Modal";
 import Button from "@/components/Button";
 
 export default function ProtectedRoute({ children }) {
   const { data: session, status } = useSession();
   const [isDismissed, setIsDismissed] = useState(false);
+  const pathname = usePathname();
 
   const showModal = status === "unauthenticated" && !isDismissed;;
 
