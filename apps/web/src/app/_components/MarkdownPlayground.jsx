@@ -6,6 +6,7 @@ import remarkGfm from 'remark-gfm';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import Button from '@/components/Button';
+import TextArea from '@/components/TextArea';
 
 
 const defaultMarkdown = `# Welcome to the Markdown Playground! 🎨
@@ -125,7 +126,66 @@ export default function MarkdownPlayground() {
             {/* Editor and Preview */}
             <div className="max-w-7xl mx-auto p-4">
                 <div className={`grid gap-4 ${showPreview ? 'grid-cols-1 lg:grid-cols-2' : 'grid-cols-1'}`}>
-                    
+                    <div className="flex flex-col">
+                        <div className="bg-gray-800 px-4 py-2 rounded-t-lg border-b border-gray-700">
+                            <span className="text-sm font-medium text-gray-300">
+                                Editor
+                            </span>
+                        </div>
+                        <TextArea
+                            id="markdown-editor"
+                            name="markdown"
+                            value={markdown}
+                            onChange={handleChange}
+                            placeholder="Start typing markdown here..."
+                            rows={25}
+                            className="flex-1 min-h-150 bg-gray-850 text-foreground p-4 font-mono text-sm rounded-b-lg focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+                        />
+                    </div>
+
+
+
+                {/* Preview */}
+                {showPreview && (
+                    <div className="flex flex-col">
+                    <div className="bg-gray-800 px-4 py-2 rounded-t-lg border-b border-gray-700">
+                        <span className="text-sm font-medium text-gray-300">
+                            Preview
+                        </span>
+                    </div>
+                    <div className="flex-1 min-h-150 bg-gray-850 p-6 rounded-b-lg overflow-auto">
+                        <div className="prose prose-invert prose-slate max-w-none">
+                        <ReactMarkdown
+                            remarkPlugins={[remarkGfm]}
+                            components={{
+                                code({ node, inline, className, children, ...props }) {
+                                    const match = /language-(\w+)/.exec(className || '');
+                                    return !inline && match ? (
+                                        <SyntaxHighlighter
+                                            style={vscDarkPlus}
+                                            language={match[1]}
+                                            PreTag="div"
+                                            {...props}
+                                        >
+                                            {String(children).replace(/\n$/, '')}
+                                        </SyntaxHighlighter>
+                                    ) : (
+                                        <code className="bg-gray-700 px-1.5 py-0.5 rounded text-sm" {...props}>
+                                            {children}
+                                        </code>
+                                    );
+                                },
+                                
+                            }}
+                        >
+                            {markdown}
+                        </ReactMarkdown>
+                        </div>
+                    </div>
+                    </div>
+                )}
+
+
                 </div>
             </div>
 
@@ -176,93 +236,6 @@ export default function MarkdownPlayground() {
                     </div>
                 </details>
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         </div>

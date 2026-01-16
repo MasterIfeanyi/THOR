@@ -1,5 +1,6 @@
 "use client"
 import React from 'react'
+import PropTypes from 'prop-types';
 
 const TextArea = ({
     id,
@@ -13,6 +14,7 @@ const TextArea = ({
     error = "false",
     errorMessage,
     rows = 4,
+    className = "",
     onBlur
 }) => {
 
@@ -37,6 +39,7 @@ const TextArea = ({
             placeholder={placeholder}
             rows={rows}
             className={`
+                ${className}
                 w-full px-3 py-2 mt-2 
                 bg-white border rounded-md 
                 font-light text-sm
