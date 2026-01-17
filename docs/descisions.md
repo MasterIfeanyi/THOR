@@ -4,7 +4,7 @@
 
 **Context**
 
-TanStack Start and Vite v7 currently present peer dependency conflicts with Tailwind CSS v4 during installation.
+TanStack Start and `Vite` v7 currently present peer dependency conflicts with Tailwind CSS v4 during installation.
 
 **Decision**
 
@@ -67,7 +67,8 @@ The issue was resolved by creating the `useLocalStorage` hook.
 - The `localStorage` object is a global object and should be accessible within the hook
 - Adding a dependency ensures that the hook is re-run whenever the `localStorage` object changes
 
-## Code decision: Github authentication in playground
+
+## Code decision: GitHub authentication in playground
 
 **Context**
 The Playground app requires authentication to access certain features.
@@ -77,8 +78,26 @@ Whenever someone sign in with GitHub they get redirected to "sign in", when they
 
 **Causation**
 
+```javascript
 
+const handler = NextAuth({
 
-**Rationale**: Github authentication provides a secure and easy way to authenticate users and access their profile information.
+    callbacks: {
 
-**Tradeoffs**: The app requires users to have a Github account and to grant the app permission to access their profile information.
+        async redirect({url, baseUrl}) {
+            // If the url is from the same origin, use it
+            if (url.startsWith("/")) {
+                return url
+            } else {
+                return `${baseUrl}/getting-started`
+            }
+        },
+
+    }
+})
+
+export { handler as GET, handler as POST }
+
+```
+
+**Rationale** If the `url` is from the same origin, use it
