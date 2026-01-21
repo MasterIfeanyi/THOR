@@ -34,7 +34,9 @@ git clone https://github.com/YOUR-USERNAME/project-name.git
 cd project-name
 ```
 
-> **Why fork?** You don't have permission to push directly to someone else's repository. Your fork is yours—you can do whatever you want there.
+<Callout type="info">
+**Why fork?** You don't have permission to push directly to someone else's repository. Your fork is yours—you can do whatever you want there.
+</Callout>
 
 ### For Private Repositories (Your Team/Company Projects)
 
@@ -45,7 +47,9 @@ git clone https://github.com/company/project-name.git
 cd project-name
 ```
 
-> **Note:** Make sure you have the right permissions! If you can't clone, ask your team lead for access.
+<Callout type="warning">
+Make sure you have the right permissions! If you can't clone, ask your team lead for access.
+</Callout>
 
 ## Step 2: Set Up Your Remote (For Forked Repos Only)
 
@@ -65,7 +69,9 @@ git remote -v
 
 ## Step 3: Create a Branch
 
+<Callout type="error">
 **Never work directly on `main` or `master`!** Always create a separate branch for your changes.
+</Callout>
 
 ```bash
 git checkout -b feature/landing-page
@@ -92,7 +98,9 @@ git checkout -b docs/update-readme
 git checkout -b refactor/database-queries
 ```
 
-> **Pro Tip:** Check if the project has a CONTRIBUTING.md file—it often specifies their branch naming format!
+<Callout type="info">
+**Pro Tip:** Check if the project has a CONTRIBUTING.md file—it often specifies their branch naming format!
+</Callout>
 
 Some projects use issue numbers:
 
@@ -136,19 +144,23 @@ Your commit message should explain **what** and **why**, not *how* (the code sho
 
 **Bad commit messages:**
 
+<Callout type="error">
 ```bash
 git commit -m "fixed stuff"
 git commit -m "updates"
 git commit -m "changes to landing page"
 ```
+</Callout>
 
 **Good commit messages:**
 
+<Callout type="success">
 ```bash
 git commit -m "fix: resolve mobile navigation menu overflow on small screens"
 git commit -m "feat: add password strength indicator to signup form"
 git commit -m "docs: update API authentication examples in README"
 ```
+</Callout>
 
 Many projects use [Conventional Commits](https://www.conventionalcommits.org/):
 
@@ -160,7 +172,9 @@ Many projects use [Conventional Commits](https://www.conventionalcommits.org/):
 - `test:` - Adding or updating tests
 - `chore:` - Maintenance tasks
 
-> **Multiple Commits?** That's fine! Each commit should represent one logical change. You can always squash them later if the project requires it.
+<Callout type="info">
+**Multiple Commits?** That's fine! Each commit should represent one logical change. You can always squash them later if the project requires it.
+</Callout>
 
 ## Step 6: Push Your Branch
 
@@ -200,15 +214,19 @@ Your PR has two main parts: **title** and **description**.
 
 **Title:** Clear and concise, like a newspaper headline
 
-```
-✅ Add responsive landing page with hero section
-✅ Fix authentication timeout on slow connections
-✅ Update installation instructions in README
+<Callout type="success">
+**Good PR Titles:**
+- Add responsive landing page with hero section
+- Fix authentication timeout on slow connections
+- Update installation instructions in README
+</Callout>
 
-❌ Updates
-❌ Changes to code
-❌ Fixed the thing
-```
+<Callout type="error">
+**Bad PR Titles:**
+- Updates
+- Changes to code
+- Fixed the thing
+</Callout>
 
 **Description:** Tell the whole story. Here's a template:
 
@@ -259,7 +277,9 @@ The current homepage doesn't clearly communicate our product value to new visito
 The hero image is placeholder—waiting on design team for final asset.
 ```
 
-> **Important:** Link related issues! Use keywords like `Fixes #123`, `Closes #123`, or `Resolves #123` to auto-close issues when your PR merges.
+<Callout type="warning">
+**Important:** Link related issues! Use keywords like `Fixes #123`, `Closes #123`, or `Resolves #123` to auto-close issues when your PR merges.
+</Callout>
 
 ## Step 8: The Review Process
 
@@ -277,15 +297,19 @@ Don't panic! Code review is normal and healthy. Common feedback includes:
 
 **Be professional and gracious:**
 
-```markdown
-✅ "Good catch! I've added tests and pushed a new commit."
-✅ "Thanks for the feedback! I've refactored it as suggested."
-✅ "You're right, I missed that edge case. Fixed in the latest commit."
+<Callout type="success">
+**Good Responses:**
+- "Good catch! I've added tests and pushed a new commit."
+- "Thanks for the feedback! I've refactored it as suggested."
+- "You're right, I missed that edge case. Fixed in the latest commit."
+</Callout>
 
-❌ "But my way is better..."
-❌ "You don't understand what I'm trying to do"
-❌ (No response at all)
-```
+<Callout type="error">
+**Bad Responses:**
+- "But my way is better..."
+- "You don't understand what I'm trying to do"
+- (No response at all)
+</Callout>
 
 ### Making Changes After Feedback
 
@@ -338,7 +362,9 @@ git checkout feature/landing-page
 git rebase main
 ```
 
-> **Merge vs Rebase?** For your first PRs, use `merge`. It's safer. Learn `rebase` later when you're comfortable.
+<Callout type="info">
+**Merge vs Rebase?** For your first PRs, use `merge`. It's safer. Learn `rebase` later when you're comfortable.
+</Callout>
 
 ### ❌ Too Many Unrelated Changes in One PR
 
@@ -346,12 +372,16 @@ git rebase main
 
 **Solution:** Keep PRs focused on one thing. If you have multiple improvements, create multiple PRs.
 
-```
-✅ One PR: "Add dark mode toggle"
-✅ Another PR: "Fix login validation"
+<Callout type="success">
+**Good Approach:**
+- One PR: "Add dark mode toggle"
+- Another PR: "Fix login validation"
+</Callout>
 
-❌ One PR: "Add dark mode, fix login, update footer, refactor API calls, add tests"
-```
+<Callout type="error">
+**Bad Approach:**
+- One PR: "Add dark mode, fix login, update footer, refactor API calls, add tests"
+</Callout>
 
 ### ❌ Massive PRs with Thousands of Lines Changed
 
@@ -363,7 +393,9 @@ git rebase main
 2. PR #2: Add core functionality (300 lines)
 3. PR #3: Add styling and polish (250 lines)
 
-> **Rule of Thumb:** Aim for PRs under 400 lines of changes. Reviewers are much more likely to review smaller PRs quickly.
+<Callout type="info">
+**Rule of Thumb:** Aim for PRs under 400 lines of changes. Reviewers are much more likely to review smaller PRs quickly.
+</Callout>
 
 ## Best Practices for Great PRs
 
