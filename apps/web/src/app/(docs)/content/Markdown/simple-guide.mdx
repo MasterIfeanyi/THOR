@@ -1,6 +1,6 @@
 # Writing Markdown for Open Source: A Practical Guide
 
-So you want to contribute to open source projects, but you're staring at that Pull Request description box wondering how to make your changes look professional? Let me teach you Markdown. The simple formatting language that'll make your PRs shine.
+So you want to contribute to open source projects, but you're staring at that Pull Request description box wondering how to make your changes look professional? Let me teach you Markdown—the simple formatting language that'll make your PRs shine.
 
 ## What is Markdown?
 
@@ -19,7 +19,9 @@ Headers organize your content. Use the hash symbol `#` followed by a space:
 #### This is an H4
 ```
 
+<Callout type="info">
 **PR Tip:** Start your PR description with an H2 or H3 for "What Changed" or "Summary"—don't use H1 since the PR title is already your main header.
+</Callout>
 
 ### Links
 
@@ -37,7 +39,9 @@ See [documentation](https://docs.example.com/api)
 Related to [this discussion](https://github.com/project/repo/discussions/456)
 ```
 
+<Callout type="info">
 **Pro tip:** GitHub auto-links issue numbers, so `Fixes #123` works too, but the full link syntax is more explicit.
+</Callout>
 
 ### Emphasis (Bold and Italic)
 
@@ -95,7 +99,9 @@ function getUserData(id) {
 ```
 ````
 
+<Callout type="warning">
 **In PRs:** Always specify the language (`javascript`, `python`, `bash`, etc.) for syntax highlighting.
+</Callout>
 
 ## Essential Markdown for PR Descriptions
 
@@ -237,6 +243,10 @@ Cache can be disabled by setting `ENABLE_PROFILE_CACHE=false` in environment var
 
 ## Quick Reference Cheat Sheet
 
+<Callout type="info">
+Copy this cheat sheet for quick reference while writing your PRs!
+</Callout>
+
 ```markdown
 # Headers
 ## Use # through ######
@@ -276,6 +286,8 @@ The best way to learn? Start writing:
 2. Open a practice issue on your own repo
 3. Write a detailed PR description for your next contribution
 
+<Callout type="success">
 Remember: Clear communication is as valuable as good code. A well-written PR description shows respect for reviewers' time and makes your contribution more likely to be accepted.
+</Callout>
 
 Now go write that PR! Your future collaborators will thank you.
