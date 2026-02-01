@@ -4,6 +4,7 @@ import Sidebar from "./Sidebar.jsx";
 import Breadcrumb from "./Breadcrumb";
 import NavbarLayout from "./NavbarLayout.jsx";
 import Comment from "./Comment";
+import Button from "@/components/Button";
 import { PanelLeftClose, PanelLeftOpen } from "lucide-react";
 
 const DocsLayout = ({ children, tree }) => {
@@ -22,23 +23,21 @@ const DocsLayout = ({ children, tree }) => {
 
         <main className="overflow-y-auto relative flex-1 px-12 py-8">
           {/* Sidebar Toggle Button */}
-          <button
+          <Button
             onClick={toggleSidebar}
-            className="flex fixed left-4 top-20 z-50 gap-2 items-center px-3 py-2 rounded-lg border shadow-md transition-colors bg-card border-border hover:bg-muted/80"
-            aria-label={sidebarVisible ? "Hide sidebar" : "Show sidebar"}
-          >
-            {sidebarVisible ? (
-              <>
+            variant="other"
+            size="small"
+            className="fixed top-0 left-4 z-50 rounded-xl border-2 border-gray-300 shadow-md cursor-pointer hover:text-black"
+            icon={
+              sidebarVisible ? (
                 <PanelLeftClose size={18} />
-                <span className="text-sm font-medium">Hide</span>
-              </>
-            ) : (
-              <>
+              ) : (
                 <PanelLeftOpen size={18} />
-                <span className="text-sm font-medium">Show</span>
-              </>
-            )}
-          </button>
+              )
+            }
+          >
+            {sidebarVisible ? "Hide" : "Show"}
+          </Button>
 
           <Breadcrumb tree={tree} />
           {children}
