@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import DOMPurify from "dompurify";
+import TextArea from "@/components/TextArea";
 
 // Helper function to format relative time
 const formatRelativeTime = (dateString) => {
@@ -258,6 +259,7 @@ const Comment = () => {
   const [sortBy, setSortBy] = useState("recent");
   const [isLoading, setIsLoading] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState(false);
   const path = usePathname();
 
   // Fetch comments when page changes or sort changes
@@ -291,7 +293,7 @@ const Comment = () => {
     if (!newComment.trim() || isSubmitting) return;
 
     if (status !== "authenticated") {
-      alert("Please sign in to comment");
+      setError("Please sign in to comment");
       return;
     }
 
@@ -312,11 +314,11 @@ const Comment = () => {
         setNewComment("");
       } else {
         const errorData = await response.json();
-        alert(errorData.error || "Failed to post comment");
+        setError(errorData.error || "Failed to post comment");
       }
     } catch (error) {
       console.error("Error posting comment:", error);
-      alert("Failed to post comment");
+      setError("Failed to post comment");
     } finally {
       setIsSubmitting(false);
     }
@@ -324,7 +326,7 @@ const Comment = () => {
 
   const handleReplySubmit = async (content, parentId) => {
     if (status !== "authenticated") {
-      alert("Please sign in to reply");
+      setError("Please sign in to reply");
       throw new Error("Not authenticated");
     }
 
@@ -340,7 +342,7 @@ const Comment = () => {
 
     if (!response.ok) {
       const errorData = await response.json();
-      alert(errorData.error || "Failed to post reply");
+      setError(errorData.error || "Failed to post reply");
       throw new Error("Failed to post reply");
     }
 
@@ -392,7 +394,7 @@ const Comment = () => {
             </div>
           )}
           <div className="flex-1">
-            <textarea
+            <TextArea
               value={newComment}
               onChange={(e) => setNewComment(e.target.value)}
               className="px-4 py-3 w-full rounded-lg border resize-none border-input focus:outline-none focus:ring-2 focus:ring-ring bg-background placeholder:text-muted-foreground"
@@ -403,6 +405,9 @@ const Comment = () => {
                   : "Sign in to comment..."
               }
               disabled={status !== "authenticated" || isSubmitting}
+              required={true}
+              error={error ? "true" : "false"}
+              errorMessage={error}
             />
             <div className="flex justify-between items-center mt-3">
               <p className="text-xs text-muted-foreground">
