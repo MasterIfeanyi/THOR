@@ -4,8 +4,7 @@ import { NextResponse } from 'next/server'
 const allowedOrigins = [
     'http://localhost:3000',
     'http://localhost:3001',
-    // Add your production domain when deploying
-    // 'https://yourdomain.com',
+    'https://ifeanyi-thor.netlify.app',
 ]
 
 export function middleware(request) {
