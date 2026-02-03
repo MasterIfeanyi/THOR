@@ -1,0 +1,9 @@
+[build]
+  command = "npm install && npm --workspace @repo/web run build"
+  publish = "apps/web/.next"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"

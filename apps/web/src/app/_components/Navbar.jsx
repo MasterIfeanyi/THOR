@@ -5,17 +5,17 @@ import { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 import { FaGithub } from "react-icons/fa";
 import Avatar from "./Avatar";
-import { useSession } from "next-auth/react";
 import Image from "next/image";
 import ThemeToggle from "./ThemeToggle";
+import { useSession } from "next-auth/react";
 
 export default function Navbar() {
   const { data: session } = useSession();
-
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
     { label: "Docs", href: "/getting-started" },
+    { label: "Playground", href: "/playground" },
     { label: "Community", href: "/community" },
   ];
 

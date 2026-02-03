@@ -71,13 +71,13 @@ export default function ProfilePage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
+    <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/30">
       {/* Back Navigation */}
       <div className="px-4 pt-8 mx-auto max-w-6xl sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           <button
             onClick={() => router.push("/getting-started")}
-            className="flex gap-2 items-center transition-colors text-muted-foreground hover:text-foreground group"
+            className="flex gap-2 items-center px-3 py-2 rounded-lg transition-all text-muted-foreground hover:text-foreground hover:bg-muted/50 group"
           >
             <ArrowLeft
               size={20}
@@ -89,7 +89,7 @@ export default function ProfilePage() {
           {/* Sidebar Toggle Button */}
           <button
             onClick={toggleSidebar}
-            className="hidden gap-2 items-center px-4 py-2 text-sm font-medium rounded-lg border transition-colors lg:flex bg-card border-border hover:bg-muted/50"
+            className="hidden gap-2 items-center px-4 py-2 text-sm font-medium rounded-lg border transition-all lg:flex border-border hover:bg-accent hover:text-accent-foreground shadow-sm hover:shadow"
             aria-label={sidebarVisible ? "Hide sidebar" : "Show sidebar"}
           >
             <Settings size={18} />
@@ -108,7 +108,7 @@ export default function ProfilePage() {
           {/* Left Column - Profile Card */}
           <div className="space-y-6 lg:col-span-2">
             {/* Profile Header Card */}
-            <div className="overflow-hidden rounded-2xl border shadow-xl transition-shadow duration-300 bg-card border-border hover:shadow-2xl">
+            <div className="overflow-hidden rounded-2xl border shadow-lg transition-all duration-300 bg-card border-border hover:shadow-xl bg-transparent">
               {/* Gradient Header */}
               <div className="overflow-hidden relative h-40 bg-gradient-to-br from-primary via-primary/90 to-primary/70">
                 <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNnoiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLW9wYWNpdHkuei4xIi8+PC9nPjwvc3ZnPg==')] opacity-30"></div>
@@ -119,7 +119,7 @@ export default function ProfilePage() {
                 {/* Avatar */}
                 <div className="flex flex-col gap-6 items-center -mt-20 sm:flex-row sm:items-start">
                   <div className="relative group">
-                    <div className="overflow-hidden w-32 h-32 rounded-2xl border-4 shadow-2xl transition-transform duration-300 transform border-card bg-card group-hover:scale-105">
+                    <div className="overflow-hidden w-32 h-32 rounded-2xl shadow-xl transition-all duration-300 transform border-background bg-card group-hover:scale-105 group-hover:shadow-2xl">
                       {user.image ? (
                         <Image
                           src={user.image}
@@ -134,7 +134,7 @@ export default function ProfilePage() {
                         </div>
                       )}
                     </div>
-                    <div className="flex absolute -right-2 -bottom-2 justify-center items-center w-10 h-10 rounded-full border-4 shadow-lg bg-primary border-card">
+                    <div className="flex absolute -right-2 -bottom-2 justify-center items-center w-10 h-10 rounded-full shadow-lg bg-primary border-background">
                       <Github size={20} className="text-primary-foreground" />
                     </div>
                   </div>
@@ -145,17 +145,17 @@ export default function ProfilePage() {
                     </h1>
                     <div className="flex flex-wrap gap-2 justify-center sm:justify-start">
                       {isProjectOwner ? (
-                        <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gradient-to-r from-amber-500/20 to-orange-500/20 text-amber-600 dark:text-amber-400 rounded-lg text-sm font-semibold border border-amber-500/30 shadow-md">
+                        <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gradient-to-r from-amber-500/20 via-amber-500/15 to-orange-500/20 text-amber-700 dark:text-amber-300 rounded-lg text-sm font-semibold border border-amber-500/40 shadow-md backdrop-blur-sm">
                           <Crown size={14} className="fill-current" />
                           Project Owner & Support
                         </span>
                       ) : (
-                        <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-primary/10 text-primary rounded-lg text-sm font-semibold border border-primary/20">
+                        <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-primary/15 text-primary rounded-lg text-sm font-semibold border border-primary/30 shadow-sm backdrop-blur-sm">
                           <Shield size={14} />
                           {user.role || "Member"}
                         </span>
                       )}
-                      <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-accent/50 text-accent-foreground rounded-lg text-sm font-medium">
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-accent/70 text-accent-foreground rounded-lg text-sm font-medium border border-accent/50 shadow-sm">
                         <Github size={14} />
                         GitHub Account
                       </span>
@@ -167,7 +167,7 @@ export default function ProfilePage() {
                 <div className="flex flex-col gap-3 mt-8 sm:flex-row">
                   <button
                     onClick={() => router.push("/getting-started")}
-                    className="flex-1 flex items-center justify-center gap-2 px-6 py-3.5 bg-primary text-primary-foreground rounded-xl font-semibold hover:bg-primary/90 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                    className="flex-1 flex items-center justify-center gap-2 px-6 py-3.5 bg-primary text-primary-foreground rounded-xl font-semibold hover:bg-primary/90 transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 active:translate-y-0"
                   >
                     <Settings size={20} />
                     Browse Documentation
@@ -175,7 +175,7 @@ export default function ProfilePage() {
 
                   <button
                     onClick={handleLogout}
-                    className="flex items-center justify-center gap-2 px-6 py-3.5 bg-destructive/10 text-destructive border-2 border-destructive/20 rounded-xl font-semibold hover:bg-destructive hover:text-destructive-foreground transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+                    className="flex items-center justify-center gap-2 px-6 py-3.5 bg-destructive/15 text-destructive border-2 border-destructive/30 rounded-xl font-semibold hover:bg-destructive hover:text-destructive-foreground transition-all duration-200 shadow-sm hover:shadow-md transform hover:-translate-y-0.5 active:translate-y-0"
                   >
                     <LogOut size={20} />
                     Sign Out
@@ -185,9 +185,9 @@ export default function ProfilePage() {
             </div>
 
             {/* Account Information Card */}
-            <div className="p-6 rounded-2xl border shadow-xl transition-shadow duration-300 bg-card border-border sm:p-8 hover:shadow-2xl">
+            <div className="p-6 rounded-2xl border shadow-lg transition-all duration-300  border-border sm:p-8 hover:shadow-xl bg-transparent">
               <div className="flex gap-3 items-center mb-6">
-                <div className="flex justify-center items-center w-10 h-10 rounded-xl bg-primary/10">
+                <div className="flex justify-center items-center w-10 h-10 rounded-xl bg-primary/15 shadow-sm">
                   <UserIcon size={20} className="text-primary" />
                 </div>
                 <h2 className="text-2xl font-bold text-foreground">
@@ -195,10 +195,10 @@ export default function ProfilePage() {
                 </h2>
               </div>
 
-              <div className="space-y-5">
+              <div className="space-y-4">
                 {/* Email */}
-                <div className="flex gap-4 items-start p-4 rounded-xl transition-colors bg-muted/30 hover:bg-muted/50">
-                  <div className="flex flex-shrink-0 justify-center items-center w-10 h-10 rounded-lg bg-background">
+                <div className="flex gap-4 items-start p-4 rounded-xl transition-all bg-muted/40 hover:bg-muted/60 border border-transparent hover:border-border/50">
+                  <div className="flex flex-shrink-0 justify-center items-center w-10 h-10 rounded-lg bg-background shadow-sm">
                     <Mail size={18} className="text-primary" />
                   </div>
                   <div className="flex-1 min-w-0">
@@ -213,15 +213,15 @@ export default function ProfilePage() {
 
                 {/* User ID */}
                 {user.id && (
-                  <div className="flex gap-4 items-start p-4 rounded-xl transition-colors bg-muted/30 hover:bg-muted/50">
-                    <div className="flex flex-shrink-0 justify-center items-center w-10 h-10 rounded-lg bg-background">
+                  <div className="flex gap-4 items-start p-4 rounded-xl transition-all bg-muted/40 hover:bg-muted/60 border border-transparent hover:border-border/50">
+                    <div className="flex flex-shrink-0 justify-center items-center w-10 h-10 rounded-lg bg-background shadow-sm">
                       <Shield size={18} className="text-primary" />
                     </div>
                     <div className="flex-1 min-w-0">
                       <p className="mb-1 text-sm font-medium text-muted-foreground">
                         User ID
                       </p>
-                      <p className="inline-block px-3 py-2 font-mono text-sm font-semibold break-all rounded-lg text-foreground bg-background">
+                      <p className="inline-block px-3 py-2 font-mono text-sm font-semibold break-all rounded-lg text-foreground bg-background border border-border shadow-sm">
                         {maskUserId(user.id)}
                       </p>
                     </div>
@@ -235,9 +235,9 @@ export default function ProfilePage() {
           {sidebarVisible && (
             <div className="space-y-6 lg:animate-slideInRight">
               {/* Account Status */}
-              <div className="p-6 rounded-2xl border shadow-xl transition-shadow duration-300 bg-card border-border hover:shadow-2xl">
+              <div className="p-6 rounded-2xl border shadow-lg transition-all duration-300 bg-transparent border-border hover:shadow-xl">
                 <h3 className="flex gap-2 items-center mb-4 text-lg font-bold text-foreground">
-                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse shadow-sm shadow-green-500/50"></div>
                   Account Status
                 </h3>
                 <div className="space-y-3">
@@ -245,13 +245,13 @@ export default function ProfilePage() {
                     <span className="text-sm text-muted-foreground">
                       Status
                     </span>
-                    <span className="text-sm font-semibold text-green-600 dark:text-green-400">
+                    <span className="text-sm font-semibold text-green-600 dark:text-green-400 bg-green-500/10 px-2.5 py-1 rounded-md">
                       Active
                     </span>
                   </div>
                   <div className="flex justify-between items-center py-2 border-t border-border/50">
                     <span className="text-sm text-muted-foreground">Plan</span>
-                    <span className="text-sm font-semibold text-foreground">
+                    <span className="text-sm font-semibold text-foreground bg-muted/50 px-2.5 py-1 rounded-md">
                       Free
                     </span>
                   </div>
@@ -259,7 +259,7 @@ export default function ProfilePage() {
                     <span className="text-sm text-muted-foreground">
                       Member Since
                     </span>
-                    <span className="text-sm font-semibold text-foreground">
+                    <span className="text-sm font-semibold text-foreground bg-muted/50 px-2.5 py-1 rounded-md">
                       {new Date().toLocaleDateString("en-US", {
                         month: "short",
                         year: "numeric",
@@ -270,27 +270,27 @@ export default function ProfilePage() {
               </div>
 
               {/* Quick Links */}
-              <div className="p-6 rounded-2xl border shadow-xl transition-shadow duration-300 bg-card border-border hover:shadow-2xl">
+              <div className="p-6 rounded-2xl border shadow-lg transition-all duration-300 bg-transparent border-border hover:shadow-xl">
                 <h3 className="mb-4 text-lg font-bold text-foreground">
                   Quick Links
                 </h3>
                 <div className="space-y-2">
                   <button
                     onClick={() => router.push("/community")}
-                    className="flex justify-between items-center px-4 py-3 w-full text-sm font-medium text-left rounded-xl transition-colors hover:bg-muted/50 text-foreground group"
+                    className="flex justify-between items-center px-4 py-3 w-full text-sm font-medium text-left rounded-xl transition-all hover:bg-muted/60 text-foreground group border border-transparent hover:border-border/50"
                   >
                     <span>Community</span>
                     <ArrowLeft
                       size={16}
-                      className="opacity-0 transition-opacity rotate-180 group-hover:opacity-100"
+                      className="opacity-0 transition-all rotate-180 group-hover:opacity-100 group-hover:translate-x-1"
                     />
                   </button>
                 </div>
               </div>
 
               {/* Help Card */}
-              <div className="p-6 bg-gradient-to-br rounded-2xl border from-primary/10 to-primary/5 border-primary/20">
-                <div className="flex justify-center items-center mb-4 w-12 h-12 rounded-xl bg-primary/20">
+              <div className="p-6 bg-gradient-to-br rounded-2xl border shadow-lg from-primary/15 via-primary/10 to-primary/5 border-primary/30">
+                <div className="flex justify-center items-center mb-4 w-12 h-12 rounded-xl bg-primary/25 shadow-sm">
                   <Settings size={24} className="text-primary" />
                 </div>
                 <h3 className="mb-2 text-lg font-bold text-foreground">
@@ -302,7 +302,7 @@ export default function ProfilePage() {
                 </p>
                 <button
                   onClick={() => router.push("/getting-started")}
-                  className="w-full px-4 py-2.5 bg-primary text-primary-foreground rounded-xl font-semibold hover:bg-primary/90 transition-colors text-sm"
+                  className="w-full px-4 py-2.5 bg-primary text-primary-foreground rounded-xl font-semibold hover:bg-primary/90 transition-all duration-200 text-sm shadow-md hover:shadow-lg transform hover:-translate-y-0.5 active:translate-y-0"
                 >
                   View Documentation
                 </button>

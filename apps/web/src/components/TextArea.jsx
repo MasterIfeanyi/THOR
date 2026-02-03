@@ -37,19 +37,22 @@ const TextArea = ({
         className={`
                 w-full px-3 py-2 mt-2 
                 ${className} border rounded-md 
-                font-light text-sm
-                outline-none transition
+                font-normal text-base
+                outline-none transition-all 
                 disabled:opacity-70 disabled:cursor-not-allowed
                 ${
                   error === "true"
-                    ? "border-danger focus:border-danger focus:ring-danger"
-                    : "border-gray-300 focus:border-primary focus:ring-primary"
+                    ? "border-destructive focus:border-destructive focus:ring-destructive"
+                    : "border-border focus:border-primary focus:ring-primary"
                 }
-                focus:ring-1
+                focus:ring-2 focus:ring-offset-0
+                placeholder:text-muted-foreground
             `}
       />
       {error === "true" && errorMessage && (
-        <small className="relative text-danger">{errorMessage}</small>
+        <small className="text-destructive relative text-xs mt-1 block">
+          {errorMessage}
+        </small>
       )}
     </div>
   );

@@ -101,7 +101,7 @@ const CommentItem = ({ comment, depth = 0, onReplySubmit, currentUserId }) => {
   };
 
   return (
-    <div className={`${depth > 0 ? "ml-8 mt-4" : "mt-6"}`}>
+    <div className={`${depth > 0 ? "ml-8 mt-4" : "mt-6"} `}>
       <div className="flex gap-3">
         {/* Avatar */}
         <div className="shrink-0">
@@ -122,7 +122,7 @@ const CommentItem = ({ comment, depth = 0, onReplySubmit, currentUserId }) => {
 
         {/* Content */}
         <div className="flex-1 min-w-0">
-          <div className="p-4 rounded-lg border shadow-sm transition-shadow bg-card border-border hover:shadow-md">
+          <div className="p-4 rounded-lg border shadow-sm transition-shadow bg-background border-border hover:shadow-md">
             {/* Header */}
             <div className="flex gap-2 items-center mb-2">
               <span className="font-semibold text-foreground">

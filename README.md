@@ -5,7 +5,6 @@
 ### Prerequisites
 
 - Node.js 18+ installed
-- A free MongoDB Atlas account ([Sign up here](https://www.mongodb.com/cloud/atlas))
 
 1. **Clone the repository:**
 
@@ -26,35 +25,16 @@
    cp .env.example .env
 ```
 
-Then edit `.env` and add your MongoDB connection string.
+Then edit `.env` and add your GitHub OAuth secrets and Next_auth secrets.
 
-4. **Set up your database:**
-
-```bash
-    npm run db:setup
-```
-
-5. **Seed the database with example data (optional):**
+4. **Start frontend**
 
 ```bash
-   npm run db:seed
+   npm run dev
 ```
 
-6. **Start frontend**
-
-```bash
-    npm run dev
-```
-
-7. **Or start backend**
-
-```bash
-    npm run dev:api
-```
-
-8. **Open your browser:**
-
-`http://localhost:3000`
+5. **Open your browser:**
+   `http://localhost:3000`
 
 ## ⚠️ Important: Always Install from Root
 

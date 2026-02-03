@@ -1,1 +1,139 @@
-hallelujah
+## How to Find Help Without Burning Bridges
+
+Knowing how to search and ask for help is a core engineering skill. In open source and programs like Outreachy, mentors pay close attention to how you unblock yourself.
+
+This section covers three essential skills:
+- Asking effective questions on Stack Overflow
+- Using Google dorking to find high-signal answers
+- Finding high-quality technical writing instead of content noise
+
+
+
+## 1. How to Use Stack Overflow Without Getting Downvoted
+
+<Callout type="info">
+Stack Overflow is designed for precise, reproducible technical questions. It is not a general learning forum or a place for open-ended discussions.
+</Callout>
+
+Many people think Stack Overflow is hostile. It is not. It is structured.  
+Most downvotes happen because questions break implicit rules, not because the problem is bad.
+
+
+
+### What Stack Overflow Is For
+
+Stack Overflow works best when the question:
+- Describes a specific problem
+- Can be reproduced by someone else
+- Has a clear expected outcome
+- Focuses on one issue only
+
+<Callout type="warning">
+Questions that are vague, opinion-based, or framed as tutorials are often closed quickly.
+</Callout>
+
+
+
+### Before You Ask Anything
+
+Before posting, answer these questions honestly:
+
+- Can someone reproduce this issue using only my question?
+- Have I clearly shown what I already tried?
+- Am I asking one focused question, not several?
+
+If the answer to any of these is no, revise before posting.
+
+
+
+### The Structure of a High-Quality Stack Overflow Question
+
+#### 1. Write a Precise Title
+
+<Callout type="error">
+**Bad title:**  
+React error help please
+</Callout>
+
+<Callout type="success">
+**Good title:**  
+React useEffect runs twice in development with StrictMode enabled
+</Callout>
+
+Titles should describe the technical issue, not your frustration.
+
+
+
+#### 2. Give Brief Context
+
+One or two sentences is enough.
+
+Example:
+
+```text
+I am building a React 18 application and noticed that an API call inside useEffect runs twice in development mode but not in production.
+```
+
+Avoid background stories or unrelated details.
+
+
+
+#### 3. Provide a Minimal Reproducible Example
+
+This is the most important part.
+
+* Remove unrelated code
+* Keep only what triggers the problem
+* Use fenced code blocks
+* Share a sandbox or gist if possible
+
+Example:
+
+```js
+useEffect(() => {
+  fetchData()
+}, [])
+```
+
+
+
+#### 4. State Expected vs Actual Behavior
+
+Never assume the reader will infer this.
+
+```text
+Expected: fetchData runs once on component mount  
+Actual: fetchData runs twice in development mode
+```
+
+
+
+#### 5. Explain What You Already Tried
+
+<Callout type="info">
+This section prevents downvotes. It shows respect for the reader's time.
+</Callout>
+
+Example:
+
+```text
+I disabled StrictMode and confirmed the issue disappears. I also checked the React documentation but I am unsure whether this behavior is intentional or a misuse on my part.
+```
+
+
+
+### How to Phrase Questions That Get Respect
+
+Avoid phrases like:
+
+* “I am new”
+* “Please help urgently”
+* “Why is this not working”
+
+Prefer phrasing like:
+
+* “I might be misunderstanding X”
+* “According to the documentation, X should do Y, but I am seeing Z”
+* “Is this expected behavior or a misuse on my part?”
+
+Clear language signals maturity.

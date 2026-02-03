@@ -19,13 +19,19 @@ export const authOptions = {
     },
 
     callbacks: {
-        async redirect({ baseUrl }) {
-            return `${baseUrl}/getting-started`
+
+        async redirect({ url, baseUrl }) {
+            // If the url is from the same origin, use it
+            if (url.startsWith("/")) {
+                return url
+            } else {
+                return `${baseUrl}/getting-started`
+            }
         },
 
         async session({ session, token, user }) {
             if (session?.user) {
-                session.user.id = user?.id || token.sub || token.id
+                session.user.id = user?.id || token?.sub || token?.id
                 session.user.role = user?.role || "User"
             }
             return session
