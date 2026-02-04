@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
       >
         <SessionProvider>
           <ThemeProvider
-            attribute="class"
+            attribute="data-theme"
             defaultTheme="system"
             enableSystem
           >
