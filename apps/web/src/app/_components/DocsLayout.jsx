@@ -14,6 +14,7 @@ const DocsLayout = ({ children, tree }) => {
     setSidebarVisible(!sidebarVisible);
   };
 
+const DocsLayout = ({ children, tree }) => {
   return (
     <>
       <NavbarLayout />
