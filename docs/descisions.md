@@ -101,3 +101,60 @@ export { handler as GET, handler as POST }
 ```
 
 **Rationale** If the `url` is from the same origin, use it
+
+
+## Build decision: Netlify deployment failure due to Prisma client initialization error
+
+**Context**
+The Netlify deployment failed due to an absence of Prisma Generation script.
+
+The `monorepo` is structured using `npm` workspaces with the following layout:
+
+```bash
+root/
+├── package.json          ← workspace root (prisma ^5.22.0)
+├── apps/
+│   └── web/
+│       └── package.json  ← @repo/web
+└── prisma/
+        └── schema.prisma  ← (prisma generation source)
+```
+
+**Error message**
+
+```javascript
+
+Error: Prisma Client is not installed. Please run `npx prisma init` to set up Prisma Client.
+
+Error type: PrismaClientInitializationError (Prisma client initialization failed)
+```
+
+**Causation**
+
+The `prisma` package was not installed in the workspace during Netlify build.
+
+**Solution**
+
+
+Ensure Prisma client is generated during the build (so Netlify never uses a stale cached client)
+
+```javascript
+// root package.json (or apps/web/package.json if you prefer)
+{
+  "scripts": {
+    "postinstall": "prisma generate"
+  }
+}
+```
+
+This ensures that when Netlify runs `npm install`, `prisma generate` runs and produces a fresh client.
+
+**Trade-Offs**
+
+The root `postinstall` hook runs generation for all workspaces on every `npm install`, even if only one workspace's dependencies changed. This is a minor CI-time cost and is acceptable given the scale of the current `monorepo`.
+
+**Mitigation**
+
+- This decision is documented here. Any contributor adding a new workspace that requires Prisma must reference this entry before declaring the dependency. 
+- The unified Prisma version is pinned explicitly (not via a caret range) in the root `package.json` to prevent silent major-version drift during dependency updates. 
+- The duplicate setup script was removed. Before, both the root and the web app had their own `postinstall` that tried to run `prisma generate`. Now only the root does it, and it handles generation for all workspaces in one clean pass. One script, one version, one source of truth.

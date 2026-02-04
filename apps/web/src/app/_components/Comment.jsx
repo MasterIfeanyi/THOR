@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import DOMPurify from "dompurify";
+import TextArea from "@/components/TextArea";
 
 // Helper function to format relative time
 const formatRelativeTime = (dateString) => {
@@ -67,7 +68,7 @@ const CommentItem = ({ comment, depth = 0, onReplySubmit, currentUserId }) => {
         // Revert on error
         setIsLiked(previousLiked);
         setLikeCount(previousCount);
-        console.error("Failed to toggle like");
+        setError("Failed to toggle like");
       } else {
         // Use the already parsed response
         setLikeCount(res.likes);
@@ -77,7 +78,7 @@ const CommentItem = ({ comment, depth = 0, onReplySubmit, currentUserId }) => {
       // Revert on error
       setIsLiked(previousLiked);
       setLikeCount(previousCount);
-      console.error("Error toggling like:", error);
+      setError("Error toggling like:", error);
     } finally {
       setIsLiking(false);
     }
@@ -93,14 +94,14 @@ const CommentItem = ({ comment, depth = 0, onReplySubmit, currentUserId }) => {
       setReplyContent("");
       setShowReplyForm(false);
     } catch (error) {
-      console.error("Error submitting reply:", error);
+      setError("Error submitting reply:", error);
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <div className={`${depth > 0 ? "ml-8 mt-4" : "mt-6"}`}>
+    <div className={`${depth > 0 ? "ml-8 mt-4" : "mt-6"} `}>
       <div className="flex gap-3">
         {/* Avatar */}
         <div className="shrink-0">
@@ -121,7 +122,7 @@ const CommentItem = ({ comment, depth = 0, onReplySubmit, currentUserId }) => {
 
         {/* Content */}
         <div className="flex-1 min-w-0">
-          <div className="p-4 bg-black rounded-lg border shadow-sm transition-shadow border-border hover:shadow-md">
+          <div className="p-4 rounded-lg border shadow-sm transition-shadow bg-background border-border hover:shadow-md">
             {/* Header */}
             <div className="flex gap-2 items-center mb-2">
               <span className="font-semibold text-foreground">
@@ -258,6 +259,7 @@ const Comment = () => {
   const [sortBy, setSortBy] = useState("recent");
   const [isLoading, setIsLoading] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState(false);
   const path = usePathname();
 
   // Fetch comments when page changes or sort changes
@@ -272,11 +274,10 @@ const Comment = () => {
           const data = await response.json();
           setComments(data.comments || []);
         } else {
-          console.error("No comments yet");
           setComments([]);
         }
       } catch (error) {
-        console.error("Error fetching comments:", error);
+        setError("Error fetching comments:", error);
         setComments([]);
       } finally {
         setIsLoading(false);
@@ -315,7 +316,7 @@ const Comment = () => {
         alert(errorData.error || "Failed to post comment");
       }
     } catch (error) {
-      console.error("Error posting comment:", error);
+      setError("Error posting comment:", error);
       alert("Failed to post comment");
     } finally {
       setIsSubmitting(false);
@@ -366,7 +367,7 @@ const Comment = () => {
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value)}
-            className="px-3 py-1.5 border border-input rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-ring bg-background"
+            className="px-3 py-1.5 border border-input rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-ring bg-background hover:cursor-pointer hover:border-2 hover:border-primary"
           >
             <option value="recent">Most Recent</option>
             <option value="popular">Most Popular</option>
@@ -392,10 +393,10 @@ const Comment = () => {
             </div>
           )}
           <div className="flex-1">
-            <textarea
+            <TextArea
               value={newComment}
               onChange={(e) => setNewComment(e.target.value)}
-              className="px-4 py-3 w-full rounded-lg border resize-none border-input focus:outline-none focus:ring-2 focus:ring-ring bg-background"
+              className="px-4 py-3 w-full rounded-lg border resize-none border-input focus:outline-none focus:ring-2 focus:ring-ring bg-background placeholder:text-muted-foreground"
               rows="4"
               placeholder={
                 status === "authenticated"
@@ -403,6 +404,9 @@ const Comment = () => {
                   : "Sign in to comment..."
               }
               disabled={status !== "authenticated" || isSubmitting}
+              required={true}
+              error={error ? true : false}
+              errorMessage={error}
             />
             <div className="flex justify-between items-center mt-3">
               <p className="text-xs text-muted-foreground">
@@ -412,12 +416,8 @@ const Comment = () => {
               </p>
               <button
                 type="submit"
-                disabled={
-                  !newComment.trim() ||
-                  status !== "authenticated" ||
-                  isSubmitting
-                }
-                className="px-6 py-2.5 bg-primary text-primary-foreground rounded-md hover:opacity-90 transition-opacity font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+                disabled={status !== "authenticated" || isSubmitting}
+                className="px-6 py-2.5 bg-primary text-primary-foreground rounded-md hover:opacity-90 transition-opacity font-medium disabled:opacity-50 disabled:cursor-not-allowed hover:cursor-pointer"
               >
                 {isSubmitting ? "Posting..." : "Post Comment"}
               </button>

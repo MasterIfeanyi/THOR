@@ -29,16 +29,16 @@ export const authOptions = {
             }
         },
 
-        async session({ session, token }) {
+        async session({ session, token, user }) {
             if (session?.user) {
-                session.user.id = user?.id || token.sub || token.id
+                session.user.id = user?.id || token?.sub || token?.id
                 session.user.role = user?.role || "User"
             }
             return session
         },
 
         async signIn({ profile }) {
-            if (!profile?.email) return false
+            // if (!profile?.email) return false
             return true
         },
     }

@@ -6,12 +6,11 @@
 
 - Node.js 18+ installed
 
-
 1. **Clone the repository:**
 
 ```bash
-   git clone https://github.com/yourusername/your-repo.git
-   cd your-repo
+   git clone https://github.com/MasterIfeanyi/THOR.git
+   cd THOR
 ```
 
 2. **Install dependencies: everything at once (frontend + backend + database)**
@@ -25,8 +24,8 @@
 ```bash
    cp .env.example .env
 ```
-   Then edit `.env` and add your GitHub OAuth secrets and Next_auth secrets.
 
+Then edit `.env` and add your GitHub OAuth secrets and Next_auth secrets.
 
 4. **Start frontend**
 
@@ -34,10 +33,8 @@
    npm run dev
 ```
 
-
 5. **Open your browser:**
-  ```http://localhost:3000```
-
+   `http://localhost:3000`
 
 ## ⚠️ Important: Always Install from Root
 

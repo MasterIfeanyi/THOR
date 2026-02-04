@@ -26,9 +26,9 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <SessionProvider>
-          <ThemeProvider 
-            attribute="class" 
-            defaultTheme="system" 
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
             enableSystem
           >
             {children}

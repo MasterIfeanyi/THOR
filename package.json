@@ -8,17 +8,19 @@
     "db:setup": "npm run db:generate --workspace=@repo/database && npm run db:push --workspace=@repo/database",
     "db:seed": "npm run db:seed --workspace=@repo/database",
     "dev": "npm run dev --workspace=@repo/web",
-    "dev:api": "npm run dev --workspace=@repo/api"
+    "dev:api": "npm run dev --workspace=@repo/api",
+    "generate": "prisma generate --schema=apps/web/prisma/schema.prisma",
+    "postinstall": "npm run generate"
   },
   "workspaces": [
     "apps/*",
     "packages/*"
   ],
   "devDependencies": {
-    "prisma": "^7.2.0",
     "@tailwindcss/postcss": "^4",
     "eslint": "^9",
     "eslint-config-next": "16.1.1",
+    "prisma": "5.22.0",
     "tailwindcss": "^4"
   },
   "keywords": [],
@@ -26,22 +28,28 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@tailwindcss/typography": "^0.5.19",
-    "next-mdx-remote": "^5.0.0",
-    "next-themes": "^0.4.6",
-    "react-markdown": "^10.1.0",
-    "react-syntax-highlighter": "^16.1.0",
-    "remark-gfm": "^4.0.1",
+    "@arcjet/inspect": "^1.0.0",
+    "@arcjet/next": "^1.0.0",
     "@auth/prisma-adapter": "^2.11.1",
+    "@prisma/client": "^5.22.0",
+    "@tailwindcss/typography": "^0.5.19",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "dompurify": "^3.3.1",
+    "isomorphic-dompurify": "^2.35.0",
     "lucide-react": "^0.562.0",
     "next": "16.1.1",
     "next-auth": "^4.24.13",
+    "next-mdx-remote": "^5.0.0",
+    "next-themes": "^0.4.6",
+    "npm": "^11.7.0",
     "prop-types": "^15.8.1",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-icons": "^5.5.0",
+    "react-markdown": "^10.1.0",
+    "react-syntax-highlighter": "^16.1.0",
+    "remark-gfm": "^4.0.1",
     "tailwind-merge": "^3.4.0"
   }
 }

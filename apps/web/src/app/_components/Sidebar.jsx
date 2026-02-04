@@ -27,10 +27,10 @@ const Sidebar = ({ tree }) => {
         <Link
           key={node.route}
           href={node.route}
-          className={`block px-3 py-2 rounded-md text-sm transition-colors  ${
+          className={`block px-3 py-2 rounded-md text-sm transition-all border-b-2 border-t-2 hover:border-t-cyan-600 ${
             isActive
-              ? "font-medium bg-accent text-primary"
-              : "hover:bg-gray-100 text-muted-foreground hover:text-foreground"
+              ? "font-semibold bg-primary/10 text-primary border-primary"
+              : "border-transparent hover:border-primary/50 hover:bg-muted/80 text-foreground/80 hover:text-foreground"
           }`}
         >
           {node.name}
