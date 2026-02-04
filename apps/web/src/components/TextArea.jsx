@@ -1,5 +1,6 @@
 "use client"
 import React from 'react'
+import PropTypes from 'prop-types';
 
 const TextArea = ({
     id,
@@ -13,6 +14,7 @@ const TextArea = ({
     error = "false",
     errorMessage,
     rows = 4,
+    className = "",
     onBlur
 }) => {
 
@@ -21,7 +23,7 @@ const TextArea = ({
         {label && (
             <label 
                 htmlFor={id} 
-                className="text-sm text-blackDark font-medium"
+                className="text-sm text-foreground font-medium"
             >
                 {label}
             </label>
@@ -37,20 +39,22 @@ const TextArea = ({
             placeholder={placeholder}
             rows={rows}
             className={`
+                ${className}
                 w-full px-3 py-2 mt-2 
-                bg-white border rounded-md 
+                bg-card border text-foreground rounded-md 
                 font-light text-sm
-                outline-none transition
+                outline-none transition-all 
                 disabled:opacity-70 disabled:cursor-not-allowed
                 ${error === "true" 
-                    ? "border-danger focus:border-danger focus:ring-danger" 
-                    : "border-gray-300 focus:border-primary focus:ring-primary"
+                    ? "border-destructive focus:border-destructive focus:ring-destructive" 
+                    : "border-border focus:border-primary focus:ring-primary"
                 }
-                focus:ring-1
+                focus:ring-2 focus:ring-offset-0
+                placeholder:text-muted-foreground
             `}
         />
         {error === "true" && errorMessage && (
-            <small className="text-danger relative">
+            <small className="text-destructive relative text-xs mt-1 block">
                 {errorMessage}
             </small>
         )}

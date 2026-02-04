@@ -1,0 +1,69 @@
+## How to Use Google Dorking to Find High-Quality Solutions
+
+Most developers underuse Google.
+Google dorking means telling Google exactly what you want and what to exclude.
+
+
+### Core Operators You Should Know
+
+#### `site:`
+
+Search within a specific website.
+
+```text
+site:stackoverflow.com react useEffect strict mode
+site:github.com issue "cannot read property"
+site:reactjs.org useEffect StrictMode
+```
+
+This removes most noise immediately.
+
+
+
+#### Quotation Marks
+
+Use quotes for exact phrases.
+
+```text
+"useEffect runs twice" react
+"StrictMode double render"
+```
+
+This is especially useful for error messages.
+
+
+
+#### Exclusion Operator
+
+Exclude irrelevant frameworks or platforms.
+
+```text
+react hydration error -nextjs -gatsby
+```
+
+
+
+#### `intitle:` and `inurl:`
+
+Target deeper technical writing.
+
+```text
+intitle:"deep dive" react useEffect
+inurl:blog react performance
+```
+
+Articles using phrases like “deep dive” are often written by experienced engineers.
+
+
+
+### Combining Operators for High Signal
+
+```text
+site:github.com issue "useEffect runs twice" StrictMode
+```
+
+This finds GitHub discussions where maintainers explain design decisions.
+
+<Callout type="success">
+GitHub issues often contain more accurate explanations than blog posts because they show maintainer intent.
+</Callout>

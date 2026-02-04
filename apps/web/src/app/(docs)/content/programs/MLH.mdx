@@ -1,0 +1,800 @@
+# Getting Into MLH Fellowship: The Complete Guide
+
+So you want to spend 12 weeks building real projects, contributing to open source, and getting paid while doing it? The Major League Hacking (MLH) Fellowship is an incredible opportunity—but getting accepted requires more than just coding skills. Let me show you exactly how to stand out and maximize your chances.
+
+## What is MLH Fellowship?
+
+The MLH Fellowship is a remote program where students work on real-world projects for 12 weeks. Unlike internships where you might spend weeks on setup, MLH throws you straight into meaningful work from day one.
+
+**What you get:**
+
+- **$5,000+ stipend** (varies by program track)
+- **Real-world experience** on production codebases
+- **Mentorship** from experienced engineers
+- **A pod of peers** (8-12 fellows working together)
+- **Something impressive** for your resume/portfolio
+- **Global network** of fellow developers
+
+**Three tracks to choose from:**
+
+1. **Open Source Track** - Contribute to major open source projects (like Kubernetes, NumPy, PyTorch)
+2. **Production Engineering Track** - Build production features for real companies
+3. **Explorer Track** (Prep Fellowship) - Learn fundamentals before diving into the other tracks
+
+<Callout type="info">
+**Program Duration:** 12 weeks, full-time commitment (35-40 hours/week)
+
+**Programs per year:** Usually 3-4 cohorts annually (Spring, Summer, Fall, sometimes Winter)
+
+**Application timeline:** Applications typically open 6-8 weeks before each cohort starts
+</Callout>
+
+## Understanding What MLH Actually Looks For
+
+Let me be brutally honest: MLH receives thousands of applications for hundreds of spots. Here's what actually matters:
+
+**Technical ability (30%):**
+- Can you write clean, working code?
+- Do you understand fundamental CS concepts?
+- Can you debug and solve problems independently?
+
+**Communication skills (25%):**
+- Can you explain technical concepts clearly?
+- Do you write well in your essays?
+- Can you work effectively in a remote team?
+
+**Passion and initiative (20%):**
+- Why do you actually want this?
+- Have you built things on your own?
+- Do you contribute to open source already?
+
+**Cultural fit (15%):**
+- Will you be a positive pod member?
+- Are you collaborative vs competitive?
+- Do you embrace feedback and learning?
+
+**Essays and presentation (10%):**
+- Did you put effort into your application?
+- Do your essays show genuine thought?
+- Is your submission clean and professional?
+
+## Eligibility Requirements
+
+Before you start, make sure you qualify:
+
+**Basic requirements:**
+- [ ] Currently enrolled student (or recently graduated within 12 months)
+- [ ] 18+ years old
+- [ ] Available for 12 weeks full-time (35-40 hours/week)
+- [ ] Located in a country where MLH operates (check their website)
+- [ ] Have strong internet connection for remote work
+- [ ] Can attend daily standups (usually 10-30 minutes)
+
+<Callout type="warning">
+**Time commitment is non-negotiable.** If you have summer classes, another internship, or can't commit 35-40 hours/week, wait for the next cohort. MLH will know if you're trying to do two things at once.
+</Callout>
+
+## The Application Process: Step by Step
+
+### Phase 1: Preparation (3-4 weeks before deadline)
+
+Start early. The best applications aren't rushed.
+
+**Week 1-2: Build your portfolio**
+
+Your GitHub profile is your resume. MLH reviewers will look at it.
+
+**What they're checking:**
+- Do you have projects that actually work?
+- Is your code clean and well-organized?
+- Do you write meaningful commit messages?
+- Do you have READMEs that explain your projects?
+
+<Callout type="error">
+**Common mistakes that kill applications:**
+
+❌ **Repos full of tutorial code** - "Completed Python course" doesn't impress anyone
+
+❌ **Messy, uncommented code** - Shows you don't care about code quality
+
+❌ **Copy-pasted projects** - Reviewers can spot plagiarism instantly
+
+❌ **Empty GitHub profile** - If you don't code publicly, how can they evaluate you?
+
+❌ **Unused comments everywhere** - Shows carelessness and unprofessionalism
+```python
+# This is bad
+# def old_function():
+#     pass  # TODO: fix this
+# x = 5  # setting x to 5
+# print(x)  # printing x
+```
+</Callout>
+
+**Creating a strong GitHub presence:**
+
+1. **Pin 3-4 best projects** on your profile
+2. **Write excellent READMEs** - explain what it does, why you built it, how to run it
+3. **Clean up your code:**
+   - Remove all commented-out code
+   - Delete TODO comments from old experiments
+   - Remove console.logs, print statements used for debugging
+   - Ensure consistent formatting (use Prettier, Black, or similar)
+   - Add meaningful comments only where code is complex
+
+4. **Make projects runnable:**
+   - Include setup instructions
+   - List all dependencies
+   - Provide example .env files
+   - Add screenshots or demo videos
+
+<Callout type="success">
+**What impresses reviewers:**
+- A project you built to solve YOUR problem
+- Clean, well-documented code
+- Evidence of iterative improvement (check commit history)
+- Projects with actual users or stars
+- Contributions to other repos (even small ones)
+</Callout>
+
+**Example: Bad vs Good Project README**
+
+<Callout type="error">
+**Bad README:**
+```markdown
+# My Project
+
+This is my website.
+
+## How to run
+npm start
+```
+</Callout>
+
+<Callout type="success">
+**Good README:**
+```markdown
+# StudyBuddy - Collaborative Study Timer
+
+A real-time collaborative study timer built with React and Socket.io that helps students stay accountable. I built this because my study group needed a way to track our pomodoro sessions together remotely.
+
+## Features
+- Real-time synchronized timers across multiple users
+- Study session statistics and analytics
+- Discord integration for notifications
+- Mobile-responsive design
+
+## Tech Stack
+- Frontend: React, TailwindCSS
+- Backend: Node.js, Express, Socket.io
+- Database: PostgreSQL
+- Deployment: Vercel + Railway
+
+## Setup
+1. Clone the repo: `git clone https://github.com/yourusername/studybuddy`
+2. Install dependencies: `npm install`
+3. Create `.env` file (see `.env.example`)
+4. Run database migrations: `npm run migrate`
+5. Start dev server: `npm run dev`
+
+## Screenshots
+[Include actual screenshots]
+
+## What I Learned
+- Real-time communication with WebSockets
+- State management across multiple clients
+- Database optimization for analytics queries
+
+## Future Improvements
+- [ ] Add voice chat integration
+- [ ] Implement study streaks and achievements
+- [ ] Mobile app with React Native
+```
+</Callout>
+
+**Week 3-4: Start contributing to open source (if you haven't)**
+
+MLH loves seeing open source contributions, especially for the Open Source track.
+
+**Quick wins to build your profile:**
+1. Fix documentation typos in major projects
+2. Add tests to projects that need them
+3. Tackle "good first issue" tags
+4. Improve error messages
+5. Add code examples to docs
+
+<Callout type="info">
+Even 2-3 merged PRs to legitimate open source projects can significantly strengthen your application. Quality over quantity—one meaningful PR beats ten trivial ones.
+</Callout>
+
+### Phase 2: The Technical Assessment
+
+This is where many applicants fail. MLH gives you a coding challenge that tests both your technical skills AND your professionalism.
+
+**What the assessment typically includes:**
+
+1. **A coding problem** (similar to LeetCode medium difficulty)
+2. **A small feature implementation** (build something specific)
+3. **Code quality evaluation** (they're judging HOW you write, not just IF it works)
+
+**The secret: Code quality matters more than you think**
+
+<Callout type="warning">
+**Critical insight:** MLH would rather accept someone who writes clean, readable code that solves 80% of the problem than someone who writes messy code that solves 100% of it. Why? Because in real teams, messy code is a liability.
+</Callout>
+
+**What "clean code" means to MLH:**
+
+**1. No commented-out code**
+
+<Callout type="error">
+**Never submit code like this:**
+```python
+def calculate_total(items):
+    # total = 0
+    # for item in items:
+    #     total += item.price
+    # return total
+    
+    # New implementation
+    return sum(item.price for item in items)
+    
+    # TODO: add tax calculation
+    # TODO: handle discounts
+```
+</Callout>
+
+<Callout type="success">
+**Submit code like this:**
+```python
+def calculate_total(items):
+    """
+    Calculate the total price of all items.
+    
+    Args:
+        items: List of items with price attribute
+        
+    Returns:
+        float: Total price of all items
+    """
+    return sum(item.price for item in items)
+```
+</Callout>
+
+**2. No debugging artifacts**
+
+Remove all:
+- `console.log()` / `print()` statements used for debugging
+- `debugger;` statements
+- Test data you used while developing
+- Commented-out experiments
+
+**3. Meaningful variable names**
+
+<Callout type="error">
+**Bad:**
+```javascript
+function p(a, b) {
+    let x = a * b;
+    let y = x * 0.1;
+    return x - y;
+}
+```
+</Callout>
+
+<Callout type="success">
+**Good:**
+```javascript
+function calculateDiscountedPrice(originalPrice, quantity) {
+    const subtotal = originalPrice * quantity;
+    const discount = subtotal * 0.1;
+    return subtotal - discount;
+}
+```
+</Callout>
+
+**4. Consistent formatting**
+
+Before submitting, run a formatter:
+- **JavaScript/TypeScript:** Prettier
+- **Python:** Black or autopep8
+- **Java:** Google Java Format
+- **Go:** gofmt
+
+**5. Appropriate comments**
+
+<Callout type="info">
+**When to comment:**
+- ✅ Explaining WHY you made a non-obvious decision
+- ✅ Documenting function/class purpose (docstrings)
+- ✅ Clarifying complex algorithms
+
+**When NOT to comment:**
+- ❌ Explaining WHAT the code does (code should be self-explanatory)
+- ❌ Leaving TODO notes for yourself
+- ❌ Keeping old code "just in case"
+</Callout>
+
+**Example: Good commenting**
+
+```python
+def calculate_fibonacci(n):
+    """
+    Calculate the nth Fibonacci number using dynamic programming.
+    
+    We use bottom-up DP instead of recursion to avoid stack overflow
+    for large values of n (n > 1000).
+    """
+    if n <= 1:
+        return n
+    
+    # Use array instead of dict for O(1) access time
+    fib = [0] * (n + 1)
+    fib[1] = 1
+    
+    for i in range(2, n + 1):
+        fib[i] = fib[i - 1] + fib[i - 2]
+    
+    return fib[n]
+```
+
+**6. Error handling**
+
+Show you think about edge cases:
+
+```javascript
+function divideNumbers(a, b) {
+    if (typeof a !== 'number' || typeof b !== 'number') {
+        throw new TypeError('Both arguments must be numbers');
+    }
+    
+    if (b === 0) {
+        throw new Error('Cannot divide by zero');
+    }
+    
+    return a / b;
+}
+```
+
+**7. Testing**
+
+If the assessment allows it, include tests:
+
+```python
+import unittest
+
+class TestCalculator(unittest.TestCase):
+    def test_divide_numbers(self):
+        self.assertEqual(divide_numbers(10, 2), 5)
+        self.assertEqual(divide_numbers(7, 2), 3.5)
+    
+    def test_divide_by_zero(self):
+        with self.assertRaises(ZeroDivisionError):
+            divide_numbers(10, 0)
+```
+
+**Before submitting your technical assessment:**
+
+- [ ] Remove ALL commented-out code
+- [ ] Remove ALL debugging print/log statements
+- [ ] Run a code formatter
+- [ ] Check that all variables have meaningful names
+- [ ] Add docstrings/comments where needed
+- [ ] Test edge cases
+- [ ] Verify the code runs without errors
+- [ ] Read through it one final time as if you're reviewing someone else's code
+
+<Callout type="warning">
+**Time management tip:** Finish coding with 30 minutes to spare. Use that time to clean up your code. A clean solution that's 90% complete beats a messy solution that's 100% complete.
+</Callout>
+
+### Phase 3: The Essays
+
+This is where you separate yourself from other technically competent applicants. MLH typically asks 3-5 essay questions.
+
+**Common essay prompts:**
+
+1. "Why do you want to join the MLH Fellowship?"
+2. "Tell us about a technical project you're proud of"
+3. "Describe a time you overcame a technical challenge"
+4. "What do you hope to learn during the fellowship?"
+5. "Tell us about yourself"
+
+**What NOT to write:**
+
+<Callout type="error">
+**Generic, lazy answers that get rejected:**
+
+❌ "I want to join MLH Fellowship to gain experience and improve my coding skills. I am passionate about technology and want to learn from the best. This opportunity would be great for my career."
+
+**Why this fails:**
+- Could apply to ANY program
+- No specific details
+- Doesn't show you researched MLH
+- Sounds like you copy-pasted from another application
+</Callout>
+
+**What TO write:**
+
+<Callout type="success">
+**Specific, genuine answers that get accepted:**
+
+✅ "I want to join the MLH Fellowship's Open Source track because I've been contributing to small Python projects for the past year, and I'm ready to tackle larger codebases like NumPy or Pandas. Last month, I got my first PR merged into a data visualization library (link), and the mentor's feedback on code optimization opened my eyes to how much I still need to learn about writing production-grade Python.
+
+What excites me about MLH specifically is the pod structure. As a student at a small university, I don't have many peers who code seriously. Working alongside 8-12 other fellows who are equally driven would push me to level up faster than I could alone. I'm also drawn to MLH's focus on teaching professional development practices—things like code review, technical communication, and collaborating async, which aren't taught in my CS classes."
+
+**Why this works:**
+- Shows specific knowledge of MLH structure (pods, tracks)
+- References actual experience with evidence
+- Explains genuine personal motivation
+- Connects MLH's offerings to specific gaps in their learning
+- Feels authentic and personal
+</Callout>
+
+**Essay writing framework:**
+
+For each essay, use the **STAR method** (Situation, Task, Action, Result):
+
+**Example: "Tell us about a technical project you're proud of"**
+
+```markdown
+**Situation:** During my university's hackathon, my team wanted to build a 
+campus event discovery app, but we struggled with getting real-time updates 
+to users.
+
+**Task:** I volunteered to figure out how to implement real-time notifications 
+without relying on expensive third-party services (we had no budget).
+
+**Action:** After researching options, I implemented Server-Sent Events (SSE) 
+with a Node.js backend instead of WebSockets, which simplified our architecture. 
+I spent two days debugging timing issues and race conditions, eventually 
+solving it by implementing a Redis pub/sub pattern to coordinate across 
+multiple server instances.
+
+**Result:** We won "Best Technical Implementation" at the hackathon. More 
+importantly, 200+ students actually downloaded and used our app during the 
+semester. The SSE approach we used became a learning resource I documented 
+in a blog post that got 1000+ views (link).
+
+**What I learned:** This project taught me that sometimes the "boring" solution 
+(SSE) works better than the "cool" solution (WebSockets). It also showed me 
+how important it is to document technical decisions—my blog post helped 
+others, and writing it solidified my own understanding.
+```
+
+**Essay best practices:**
+
+1. **Be specific with numbers and details**
+   - ❌ "Many people used my app"
+   - ✅ "200+ students downloaded it in the first week"
+
+2. **Include links to proof**
+   - Link to GitHub repos
+   - Link to deployed projects
+   - Link to blog posts
+   - Link to your contributions
+
+3. **Show growth and learning**
+   - What did you learn?
+   - What would you do differently now?
+   - How did this experience change you?
+
+4. **Be authentic**
+   - Write in your natural voice
+   - Share genuine motivations
+   - Admit mistakes and what you learned
+
+5. **Tailor to MLH specifically**
+   - Reference specific MLH programs/mentors you admire
+   - Mention specific open source projects in their ecosystem
+   - Show you've researched what makes MLH different
+
+<Callout type="warning">
+**Word count discipline:** MLH usually sets word limits. Respect them. If they say 300 words max, don't submit 400. It shows you can't follow instructions.
+</Callout>
+
+**Before submitting essays:**
+
+- [ ] Read them aloud (catches awkward phrasing)
+- [ ] Check for typos and grammar (use Grammarly or similar)
+- [ ] Verify all links work
+- [ ] Make sure you answered the actual question asked
+- [ ] Remove generic statements that could apply to any program
+- [ ] Have a friend read them for clarity
+- [ ] Save a copy for yourself (you might reference it in interviews)
+
+### Phase 4: The Video Introduction (If Required)
+
+Some cohorts require a short video introduction (1-2 minutes).
+
+**What to include:**
+
+1. **Brief intro** (10 seconds)
+   - Name, school, location
+   - What track you're applying for
+
+2. **Why MLH** (30 seconds)
+   - One specific reason you want this
+   - Keep it genuine, not rehearsed
+
+3. **Technical background** (30 seconds)
+   - One project you're proud of
+   - Technologies you work with
+   - What you want to learn
+
+4. **Personality** (20 seconds)
+   - One interesting thing about you
+   - Shows you're a real human, not just a resume
+
+**Technical setup:**
+
+- [ ] **Good lighting** - Face a window or use a ring light
+- [ ] **Clear audio** - Use headphones with mic or decent microphone
+- [ ] **Clean background** - Tidy room or virtual background
+- [ ] **Eye contact** - Look at the camera, not the screen
+- [ ] **Dress professionally** - You're applying for a professional program
+
+<Callout type="info">
+**Pro tip:** Record 5-10 takes. Watch them all. Pick the one where you seem most natural and energetic. Slightly imperfect but genuine beats perfectly polished but robotic.
+</Callout>
+
+**Common video mistakes:**
+
+❌ Reading from a script (sounds robotic)
+❌ Too long (respect the time limit)
+❌ Poor audio quality (they can't hear you properly)
+❌ Apologizing for your background/setup (just make it as good as you can)
+❌ Rambling without structure
+
+## The Interview Round
+
+If you make it past the application, you'll have an interview with MLH staff.
+
+**Format:**
+- 30-45 minutes
+- Video call with 1-2 MLH team members
+- Mix of technical questions and behavioral questions
+- You'll have time to ask questions too
+
+**Common interview questions:**
+
+**Technical:**
+1. "Walk me through a recent project you built"
+2. "Explain [technical concept] to someone non-technical"
+3. "How would you debug [scenario]?"
+4. "What's a technical challenge you faced and how did you solve it?"
+
+**Behavioral:**
+1. "Tell me about a time you had a conflict with a teammate"
+2. "How do you handle feedback on your code?"
+3. "What would you do if you disagreed with a technical decision?"
+4. "How do you prioritize tasks when everything is urgent?"
+
+**Remote work:**
+1. "How do you stay productive working remotely?"
+2. "How do you handle time zone differences?"
+3. "What tools do you use for remote collaboration?"
+
+<Callout type="success">
+**Interview tips:**
+
+✅ **Use the STAR method** for behavioral questions
+
+✅ **Be honest about what you don't know** - "I haven't used that technology, but here's how I'd approach learning it..."
+
+✅ **Ask thoughtful questions** - Shows you're serious:
+- "What does a typical day look like for fellows?"
+- "How do you pair fellows with projects/mentors?"
+- "What support is available if someone falls behind?"
+
+✅ **Show enthusiasm** - MLH wants people who genuinely want to be there
+
+✅ **Demonstrate collaboration** - Talk about "we" not just "I" when discussing team projects
+</Callout>
+
+**Questions to ask them:**
+
+1. "What percentage of applicants from my track typically get accepted?"
+2. "What does success look like for a fellow in this program?"
+3. "How hands-on are the mentors?"
+4. "What's the most common reason fellows struggle?"
+5. "Can you tell me about the pod structure for this cohort?"
+
+## After You Apply: The Waiting Game
+
+**Timeline:**
+- Applications close
+- 1-2 weeks: Application review
+- 2-3 weeks: Interviews conducted
+- 1 week: Final decisions
+- **Total: 4-6 weeks** from deadline to decision
+
+**While you wait:**
+
+- Keep building projects
+- Continue contributing to open source
+- Don't apply to programs with overlapping dates (MLH checks)
+- Prepare for backup plans
+
+## What If You Don't Get In?
+
+Let's be real: MLH accepts roughly 10-20% of applicants. Rejection is normal and NOT a reflection of your worth as a developer.
+
+**If you get rejected:**
+
+1. **Ask for feedback** - MLH sometimes provides it
+2. **Identify weak spots:**
+   - Was your GitHub portfolio strong enough?
+   - Were your essays generic?
+   - Did you have enough projects?
+   - Was your code quality up to par?
+
+3. **Improve and reapply next cohort**
+   - Many accepted fellows were rejected first
+   - Use the rejection as a learning opportunity
+   - Spend the next 3 months building your profile
+
+4. **Look at alternatives:**
+   - Google Summer of Code
+   - Outreachy
+   - LFX Mentorship
+   - Individual company internships
+
+<Callout type="info">
+**Success story:** Many MLH fellows were rejected on their first attempt. They used the feedback to improve their GitHub, write better essays, and came back stronger the next cohort. Persistence pays off.
+</Callout>
+
+## The Reality Check Section
+
+**Time commitment is real:**
+- 35-40 hours/week means 8 hours a day, 5 days a week
+- Plus daily standups (30 mins)
+- Plus weekly retros (1 hour)
+- Plus occasional all-hands meetings
+- **Total: This is a full-time job**
+
+**The work is challenging:**
+- You'll work on real production codebases
+- You'll get code review feedback that might sting
+- You'll have deadlines and deliverables
+- You'll need to learn new technologies quickly
+
+**Remote work is harder than it looks:**
+- No one watching over your shoulder
+- Easy to feel isolated
+- Time zones can be brutal
+- Communication requires extra effort
+
+**But it's worth it:**
+- You'll grow more in 12 weeks than in 12 months of classes
+- You'll have real projects to show employers
+- You'll build a network of peers and mentors
+- You'll get paid to learn
+
+## Your Action Plan
+
+### 2 months before deadline:
+
+- [ ] Clean up your GitHub profile
+- [ ] Pin your best 3-4 projects
+- [ ] Write excellent READMEs for those projects
+- [ ] Remove all commented-out code from your repos
+- [ ] Start contributing to open source (aim for 3-5 PRs)
+
+### 1 month before deadline:
+
+- [ ] Build one substantial new project (if portfolio is weak)
+- [ ] Start drafting essays
+- [ ] Research MLH thoroughly (read fellow blogs, watch talks)
+- [ ] Prepare your video introduction
+- [ ] Ask friends to review your essays
+
+### 2 weeks before deadline:
+
+- [ ] Complete technical assessment carefully
+- [ ] Polish essays (check word counts, proofread)
+- [ ] Final code cleanup check (no debugging artifacts)
+- [ ] Record video introduction (multiple takes)
+- [ ] Have someone review your entire application
+
+### 1 week before deadline:
+
+- [ ] Submit application (don't wait until last minute)
+- [ ] Double-check all links work
+- [ ] Save copies of everything you submitted
+- [ ] Prepare for potential interview
+- [ ] Apply to backup programs
+
+## Common Mistakes That Kill Applications
+
+### ❌ The Procrastinator
+
+Submits application at 11:59 PM on deadline day. Essays are rushed, code is messy, video is a single take with bad lighting.
+
+**Why it fails:** Shows poor planning and time management skills.
+
+### ❌ The Tutorial Graduate
+
+GitHub is full of "Complete React Course", "Python for Beginners", "30 Days of JavaScript" repos with no original projects.
+
+**Why it fails:** Doesn't show independent problem-solving or initiative.
+
+### ❌ The Sloppy Coder
+
+Technically competent but code is full of:
+- Commented-out blocks everywhere
+- Inconsistent formatting
+- console.log statements
+- Variables named `x`, `temp`, `data2`
+
+**Why it fails:** Shows lack of professionalism and attention to detail.
+
+### ❌ The Generic Applicator
+
+Essays could apply to any program:
+"I am passionate about coding and want to improve my skills..."
+
+**Why it fails:** Doesn't show genuine interest in MLH specifically.
+
+### ❌ The Over-Committer
+
+Applying to MLH while also:
+- Taking summer classes
+- Working another internship
+- Planning a month-long vacation
+
+**Why it fails:** MLH knows you can't do two full-time things simultaneously.
+
+## Resources You Actually Need
+
+**Official Resources:**
+- [MLH Fellowship Website](https://fellowship.mlh.io/)
+- [MLH Fellowship Application](https://fellowship.mlh.io/programs/open-source)
+- [Fellow Stories](https://news.mlh.io/tagged/mlh-fellowship)
+
+**For Improving Your Code:**
+- [Clean Code by Robert C. Martin](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882) (book)
+- [Refactoring Guru](https://refactoring.guru/) (code smells and patterns)
+- Code formatters: Prettier (JS), Black (Python), gofmt (Go)
+
+**For Open Source Contributions:**
+- [First Timers Only](https://www.firsttimersonly.com/)
+- [Good First Issue](https://goodfirstissue.dev/)
+- [Up For Grabs](https://up-for-grabs.net/)
+
+**For Essay Writing:**
+- [Grammarly](https://www.grammarly.com/) (grammar checker)
+- [Hemingway Editor](http://www.hemingwayapp.com/) (readability checker)
+
+## Final Thoughts: What Really Matters
+
+Here's the secret MLH won't tell you explicitly: **They're looking for people who would be great teammates.**
+
+Technical skills can be taught. What can't be taught easily:
+- Taking feedback gracefully
+- Communicating clearly
+- Following through on commitments
+- Being genuinely curious
+- Helping others succeed
+
+Your application should show that you're not just a good coder, but someone people want to work with for 12 weeks.
+
+**The best mindset:**
+- Apply because you genuinely want to learn, not just for the stipend
+- Show your authentic self, not who you think they want
+- Put in the work to make your application excellent
+- Be proud of what you submit, regardless of outcome
+
+**Best case:** You get in, have an amazing 12 weeks, and launch your career.
+
+**Worst case:** You don't get in, but you've cleaned up your GitHub, written better essays than you knew you could, and improved your code quality. Those improvements help with every other opportunity you pursue.
+
+Either way, you win.
+
+Now stop reading, start building, and show MLH why you deserve to be a fellow.
+
+Good luck! 🚀
+
+---
+
+**P.S.** When you get accepted (notice I said "when," not "if"), pay it forward. Help the next batch of applicants. The tech community thrives on people lifting each other up.

@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 import { MDXRemote } from "next-mdx-remote/rsc";
-import { mdxComponents } from "@/app/_components/mdx-components";
+import { mdxComponents } from "@/app/_components/MdxComponents";
 
 
 const CONTENT_PATH = path.join(
