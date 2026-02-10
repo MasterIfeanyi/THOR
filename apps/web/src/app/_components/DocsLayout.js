@@ -1,9 +1,9 @@
 "use client";
 import React, { useState } from "react";
 import Sidebar from "./Sidebar.jsx";
-import Breadcrumb from "./Breadcrumb";
+import Breadcrumb from "./Breadcrumb.jsx";
 import NavbarLayout from "./NavbarLayout.jsx";
-import Comment from "./Comment";
+import Comment from "./Comment.jsx";
 import Button from "@/components/Button";
 import { PanelLeftClose, PanelLeftOpen } from "lucide-react";
 
@@ -14,7 +14,6 @@ const DocsLayout = ({ children, tree }) => {
     setSidebarVisible(!sidebarVisible);
   };
 
-const DocsLayout = ({ children, tree }) => {
   return (
     <>
       <NavbarLayout />
@@ -47,6 +46,7 @@ const DocsLayout = ({ children, tree }) => {
       </div>
     </>
   );
-};
+}
 
-export default DocsLayout;
+
+export default DocsLayout
