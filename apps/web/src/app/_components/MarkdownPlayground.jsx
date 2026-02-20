@@ -5,8 +5,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import Button from "@/components/Button";
 import TextArea from "@/components/TextArea";
-// import { darkMarkdownComponents } from "./MdxComponents";
-import { mdxComponents }  from "./MdxComponents";
+import { mdxComponents } from "./MdxComponents";
 import { FiCopy, FiCheck, FiRotateCcw, FiTrash2 } from "react-icons/fi";
 import ProtectedRoute from "./ProtectedRoute";
 import useLocalStorage from "@/hooks/useLocalStorage";
@@ -95,13 +94,13 @@ export default function MarkdownPlayground() {
 
   return (
     <ProtectedRoute>
-      <div className="min-h-screen text-gray-100">
+      <div className="min-h-screen bg-background text-foreground">
         {/* Header */}
-        <div className="border-b border-gray-800">
+        <div className="border-b border-border">
           <div className="px-4 py-4 mx-auto max-w-7xl">
             <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
               <div>
-                <h1 className="text-2xl font-bold tracking-tight">
+                <h1 className="text-2xl font-bold tracking-tight text-foreground">
                   Markdown Playground
                 </h1>
                 <p className="mt-1 text-sm text-muted-foreground">
@@ -139,14 +138,15 @@ export default function MarkdownPlayground() {
           <div
             className={`grid gap-4 ${showPreview ? "grid-cols-1 lg:grid-cols-2" : "grid-cols-1"}`}
           >
+            {/* Editor column */}
             <div className="flex flex-col gap-0">
-              <div className="flex items-center justify-between px-4 py-2 bg-gray-800 border-gray-700 rounded-t-lg">
-                <span className="text-sm font-medium text-gray-300">
+              <div className="flex items-center justify-between px-4 py-2 bg-muted border border-border rounded-t-lg">
+                <span className="text-sm font-medium text-muted-foreground">
                   Editor
                 </span>
                 <Button
                   onClick={handleCopy}
-                  className="px-3 py-1.5 bg-gray-700 hover:bg-gray-600 rounded text-xs font-medium transition-colors flex items-center gap-1.5 cursor-pointer"
+                  className="px-3 py-1.5 bg-card hover:bg-muted rounded text-xs font-medium transition-colors flex items-center gap-1.5 cursor-pointer border border-border"
                   title="Copy markdown"
                 >
                   {copied ? <FiCheck size={14} /> : <FiCopy size={14} />}
@@ -160,23 +160,23 @@ export default function MarkdownPlayground() {
                 onChange={handleChange}
                 placeholder="Start typing markdown here..."
                 rows={25}
-                className="flex-1 p-4 font-mono text-sm text-white bg-gray-800 rounded-b-lg resize-none min-h-150 bg-gray-850 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="flex-1 p-4 font-mono text-sm bg-card text-card-foreground rounded-b-lg resize-none min-h-150 focus:outline-none focus:ring-2 focus:ring-ring border-x border-b border-border"
               />
             </div>
 
-            {/* Preview */}
+            {/* Preview column */}
             {showPreview && (
               <section className="flex flex-col h-[120vh]">
-                <div className="px-4 py-2 border border-b border-gray-700 rounded-t-lg dark:bg-gray-800">
-                  <span className="text-sm font-medium text-gray-300">
+                <div className="px-4 py-2 border border-b border-border rounded-t-lg bg-muted">
+                  <span className="text-sm font-medium text-muted-foreground">
                     Preview
                   </span>
                 </div>
-                <div className="flex-1 p-6 overflow-auto border border-t-0 border-gray-700 rounded-b-lg">
-                  <div className="text-gray-500 max-w-none dark:text-gray-300">
+                <div className="flex-1 p-6 overflow-auto border border-t-0 border-border rounded-b-lg bg-card">
+                  <div className="max-w-none text-card-foreground">
                     <ReactMarkdown
                       remarkPlugins={[remarkGfm]}
-                      components={ mdxComponents }
+                      components={mdxComponents}
                     >
                       {markdown}
                     </ReactMarkdown>
@@ -189,54 +189,33 @@ export default function MarkdownPlayground() {
 
         {/* Cheat Sheet */}
         <div className="px-4 pb-8 mx-auto max-w-7xl">
-          <details className="p-4 bg-gray-800 border border-gray-800 rounded-lg">
-            <summary className="mb-4 text-lg font-semibold text-black transition-colors cursor-pointer dark:text-white hover:text-primary">
+          <details className="p-4 bg-muted border border-border rounded-lg">
+            <summary className="mb-4 text-lg font-semibold text-foreground transition-colors cursor-pointer hover:text-primary">
               📚 Markdown Cheat Sheet
             </summary>
             <div className="grid grid-cols-1 gap-4 text-sm md:grid-cols-4">
               <div>
-                <h4 className="mb-2 font-semibold text-gray-300 dark:text-white">
-                  Headers
-                </h4>
-                <code className="block p-2 mb-2 bg-gray-900 rounded">
-                  # H1
-                  <br />
-                  ## H2
-                  <br />
-                  ### H3
+                <h4 className="mb-2 font-semibold text-primary">Headers</h4>
+                <code className="block p-2 mb-2 bg-card text-card-foreground rounded border border-border">
+                  # H1<br />## H2<br />### H3
                 </code>
               </div>
               <div>
                 <h4 className="mb-2 font-semibold text-primary">Emphasis</h4>
-                <code className="block p-2 mb-2 bg-gray-900 rounded">
-                  *italic* or _italic_
-                  <br />
-                  **bold** or __bold__
-                  <br />
-                  ***bold italic***
+                <code className="block p-2 mb-2 bg-card text-card-foreground rounded border border-border">
+                  *italic* or _italic_<br />**bold** or __bold__<br />***bold italic***
                 </code>
               </div>
               <div>
                 <h4 className="mb-2 font-semibold text-primary">Lists</h4>
-                <code className="block p-2 mb-2 bg-gray-900 rounded">
-                  - Item 1<br />
-                  - Item 2<br />
-                  - Nested
-                  <br />
-                  <br />
-                  1. First
-                  <br />
-                  2. Second
+                <code className="block p-2 mb-2 bg-card text-card-foreground rounded border border-border">
+                  - Item 1<br />- Item 2<br />- Nested<br /><br />1. First<br />2. Second
                 </code>
               </div>
               <div>
-                <h4 className="mb-2 font-semibold text-primary">
-                  Links & Images
-                </h4>
-                <code className="block p-2 mb-2 bg-gray-900 rounded">
-                  [text](url)
-                  <br />
-                  ![alt](image-url)
+                <h4 className="mb-2 font-semibold text-primary">Links & Images</h4>
+                <code className="block p-2 mb-2 bg-card text-card-foreground rounded border border-border">
+                  [text](url)<br />![alt](image-url)
                 </code>
               </div>
             </div>
