@@ -5,7 +5,8 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import Button from "@/components/Button";
 import TextArea from "@/components/TextArea";
-import { darkMarkdownComponents } from "./MdxComponents";
+// import { darkMarkdownComponents } from "./MdxComponents";
+import { mdxComponents }  from "./MdxComponents";
 import { FiCopy, FiCheck, FiRotateCcw, FiTrash2 } from "react-icons/fi";
 import ProtectedRoute from "./ProtectedRoute";
 import useLocalStorage from "@/hooks/useLocalStorage";
@@ -175,7 +176,7 @@ export default function MarkdownPlayground() {
                   <div className="text-gray-500 max-w-none dark:text-gray-300">
                     <ReactMarkdown
                       remarkPlugins={[remarkGfm]}
-                      components={darkMarkdownComponents}
+                      components={ mdxComponents }
                     >
                       {markdown}
                     </ReactMarkdown>
