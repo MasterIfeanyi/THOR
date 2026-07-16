@@ -144,23 +144,19 @@ Your commit message should explain **what** and **why**, not *how* (the code sho
 
 **Bad commit messages:**
 
-<Callout type="error">
 ```bash
 git commit -m "fixed stuff"
 git commit -m "updates"
 git commit -m "changes to landing page"
 ```
-</Callout>
 
 **Good commit messages:**
 
-<Callout type="success">
 ```bash
 git commit -m "fix: resolve mobile navigation menu overflow on small screens"
 git commit -m "feat: add password strength indicator to signup form"
 git commit -m "docs: update API authentication examples in README"
 ```
-</Callout>
 
 Many projects use [Conventional Commits](https://www.conventionalcommits.org/):
 
@@ -214,19 +210,16 @@ Your PR has two main parts: **title** and **description**.
 
 **Title:** Clear and concise, like a newspaper headline
 
-<Callout type="success">
 **Good PR Titles:**
 - Add responsive landing page with hero section
 - Fix authentication timeout on slow connections
 - Update installation instructions in README
-</Callout>
 
-<Callout type="error">
 **Bad PR Titles:**
 - Updates
 - Changes to code
 - Fixed the thing
-</Callout>
+
 
 **Description:** Tell the whole story. Here's a template:
 
@@ -297,19 +290,16 @@ Don't panic! Code review is normal and healthy. Common feedback includes:
 
 **Be professional and gracious:**
 
-<Callout type="success">
 **Good Responses:**
 - "Good catch! I've added tests and pushed a new commit."
 - "Thanks for the feedback! I've refactored it as suggested."
 - "You're right, I missed that edge case. Fixed in the latest commit."
-</Callout>
 
-<Callout type="error">
 **Bad Responses:**
 - "But my way is better..."
 - "You don't understand what I'm trying to do"
 - (No response at all)
-</Callout>
+
 
 ### Making Changes After Feedback
 
@@ -372,16 +362,14 @@ git rebase main
 
 **Solution:** Keep PRs focused on one thing. If you have multiple improvements, create multiple PRs.
 
-<Callout type="success">
-**Good Approach:**
+
+**Good Approach:** ✅
 - One PR: "Add dark mode toggle"
 - Another PR: "Fix login validation"
-</Callout>
 
-<Callout type="error">
-**Bad Approach:**
+**Bad Approach:** ❌
 - One PR: "Add dark mode, fix login, update footer, refactor API calls, add tests"
-</Callout>
+
 
 ### ❌ Massive PRs with Thousands of Lines Changed
 

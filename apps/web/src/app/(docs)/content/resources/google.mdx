@@ -6,9 +6,9 @@ Google dorking means telling Google exactly what you want and what to exclude.
 
 ### Core Operators You Should Know
 
-#### `site:`
+`site:`
 
-Search within a specific website.
+Search within a specific website. This removes most noise immediately.
 
 ```text
 site:stackoverflow.com react useEffect strict mode
@@ -16,22 +16,14 @@ site:github.com issue "cannot read property"
 site:reactjs.org useEffect StrictMode
 ```
 
-This removes most noise immediately.
-
-
-
 #### Quotation Marks
 
-Use quotes for exact phrases.
+Use quotes for exact phrases. This is especially useful for error messages.
 
 ```text
 "useEffect runs twice" react
 "StrictMode double render"
 ```
-
-This is especially useful for error messages.
-
-
 
 #### Exclusion Operator
 
